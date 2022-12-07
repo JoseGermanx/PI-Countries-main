@@ -54,7 +54,7 @@ const getAllCountry = async () => {
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 const router = Router();
-router.get("/countries", async (req, res) => {
+router.get('/countries', async (req, res) => {
   let countriesTotal = await getAllCountry();
   try {
     res.status(200).send(countriesTotal);
@@ -75,7 +75,22 @@ router.get('/countries/:id', async (req, res) => {
       } catch (err) {
         res.status(400).json({ error: err.message });
       }
-
 })
+
+router.get("/countryconsult", async (req, res) => {
+  const { pais } = req.query;
+  const countrys = await Country.findOne({
+    where: {
+      name: pais,
+    },
+  });
+  try {
+    if (countrys.dataValues.name === pais) {
+      res.status(200).send(countrys);
+    }
+  } catch (error) {
+    res.status(400).json({ error: "Hubo un error, ingresa un país correcto" });
+  }
+});
 
 module.exports = router;
