@@ -85,11 +85,11 @@ router.get("/countryconsult", async (req, res) => {
     },
   });
   try {
-    if (countrys.dataValues.name === pais) {
+      if (countrys.dataValues.name === pais) {
       res.status(200).send(countrys);
     }
   } catch (error) {
-    res.status(400).json({ error: `Hubo un error, este fue el país que ingresaste: "${pais}", y por lo que veo tiene un error en el texto`  });
+    res.status(400).json({ error: `Hubo un error, este fue el país que ingresaste: "${pais}", y tiene un error en el texto`  });
   }
 });
 
