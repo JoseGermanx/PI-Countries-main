@@ -4,7 +4,6 @@ const { Country, Activity } = require("../db");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-const router = Router();
 const getApiInfo = async () => {
   const apiUrl = await axios.get("https://restcountries.com/v3/all");
   const apiInfor = await apiUrl.data.map((el) => {
@@ -54,6 +53,7 @@ const getAllCountry = async () => {
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+const router = Router();
 router.get("/countries", async (req, res) => {
   let countriesTotal = await getAllCountry();
   try {
@@ -62,5 +62,20 @@ router.get("/countries", async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+
+router.get('/countries/:id', async (req, res) => {
+    let id = req.params.id;
+    const country = await Country.findOne({
+        where: {
+            id: id
+        },
+      });
+    try {
+        res.status(200).send(country);
+      } catch (err) {
+        res.status(400).json({ error: err.message });
+      }
+
+})
 
 module.exports = router;
