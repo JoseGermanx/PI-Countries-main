@@ -83,14 +83,41 @@ router.get("/countryconsult", async (req, res) => {
     where: {
       name: pais,
     },
+    include: Activity
   });
   try {
       if (countrys.dataValues.name === pais) {
-      res.status(200).send(countrys);
+      res.status(200).send({
+        País: countrys.dataValues.name,
+        Continente: countrys.dataValues.continente,
+        Actividades: countrys.activities
+
+       });
     }
   } catch (error) {
     res.status(400).json({ error: `Hubo un error, este fue el país que ingresaste: "${pais}", y tiene un error en el texto`  });
   }
 });
+
+router.post('/activities', async (req, res) => {
+const { nombre, dificultad, duración, temporada } = req.body;
+const {pais} = req.query;
+const newActivity = await Activity.create({ 
+  nombre: nombre,
+  dificultad: dificultad,
+  duracion: duración,
+  temporada:temporada
+ });
+ const countrieRow = await Country.findByPk(pais);
+
+  console.log(newActivity);
+
+  try {
+    await newActivity.addCountry(countrieRow, { through: "country_activity" });
+    res.status(200).send(newActivity);
+} catch (err) {
+  res.status(400).json({ error: err.message  });
+}
+})
 
 module.exports = router;

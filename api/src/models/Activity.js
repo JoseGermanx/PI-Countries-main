@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
 
         },
         duracion: {
-            type: DataTypes.TIME,
+            type: DataTypes.INTEGER,
             allowNull: false,
 
         },
