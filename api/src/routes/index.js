@@ -15,27 +15,6 @@ getApiInfo();
 const router = Router();
 router.get('/countries', obtenerCountries);
 router.get('/countries/:id', obtenerCountry);
-router.get("/countryconsult", async (req, res) => {
-  const { pais } = req.query;
-  const countrys = await Country.findOne({
-    where: {
-      name: pais,
-    },
-    include: Activity
-  });
-  try {
-      if (countrys.dataValues.name === pais) {
-      res.status(200).send({
-        País: countrys.dataValues.name,
-        Continente: countrys.dataValues.continente,
-        Actividades: countrys.activities
-
-       });
-    }
-  } catch (error) {
-    res.status(400).json({ error: `Hubo un error, este fue el país que ingresaste: "${pais}", y tiene un error en el texto`  });
-  }
-});
 router.post('/activities', activity)
 
 module.exports = router;
