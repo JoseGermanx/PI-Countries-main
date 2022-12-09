@@ -1,8 +1,7 @@
 const { Country, Activity } = require("../db");
 
 const activity = async (req, res) => {
-    const { nombre, dificultad, duración, temporada } = req.body;
-    const {pais} = req.query;
+    const { nombre, dificultad, duración, temporada, pais } = req.body;
     const newActivity = await Activity.create({ 
       nombre: nombre,
       dificultad: dificultad,
