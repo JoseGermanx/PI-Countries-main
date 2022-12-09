@@ -1,13 +1,4 @@
-const { Country} = require("../db");
-
-const getDbInfo = async () => {
-    const select = await Country.findAll();
-    return select;
-  };
-  const getAllCountry = async () => {
-    const dbInfo = await getDbInfo();
-    return dbInfo;
-  };
+const getAllCountry = require('../controllers/getDb')
 
 const obtenerCountries = async (req, res, next) => {
   try {
