@@ -1,12 +1,10 @@
-.LandingPage {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+.form {
+    display: flex;
+    flex-direction: column;
+  height: 25vh;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
-
 
 .btn {
     /* Color del texo */

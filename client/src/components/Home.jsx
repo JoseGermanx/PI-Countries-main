@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import SearchBar from "./SearchBar";
 import "./Home.css";
 
 export default function Home() {
@@ -20,9 +21,9 @@ export default function Home() {
 
   return (
     <div>
-      <Link to={"/"}>Salir</Link>
-      <h1>Aplicaciones de países</h1>
-      <button
+      <Link className="btn"to={"/"}>Salir</Link>
+      <h1>Paises y turismo</h1>
+      <button className="btn"
         onClick={(e) => {
           handleClick(e);
         }}
@@ -30,6 +31,7 @@ export default function Home() {
         {" "}
         Volver a cargar ciudades
       </button>
+      <SearchBar />
       <div>
         <select>
           <option value="asc"> Ascendente</option>
