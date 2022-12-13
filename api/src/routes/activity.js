@@ -1,12 +1,15 @@
 const { Country, Activity } = require("../db");
+const getAllCountry = require('../controllers/getDb');
 
 const activity = async (req, res) => {
-  
-    const { nombre, dificultad, duración, temporada, pais } = req.body;
+   const { nombre, dificultad, duración, temporada, pais } = req.body;
+   let countriesTotal = await getAllCountry();
+   let countryName = await countriesTotal.filter((el) =>
+   el.name === pais);
    
-    if ( temporada !== "Verano" && temporada !== "Otoño" && temporada !== "Primavera" && temporada !== "Invierno" ) {
+    if ( temporada !== "Verano" && temporada !== "Otoño" && temporada !== "Primavera" && temporada !== "Invierno" && !countryName  ) {
         return res.status(401).json({
-            msg: `${ temporada } no es una temporada`
+            msg: `${ temporada } o ${ pais } tienen un error!! 🚑 `
         });
     } else {
      try {
