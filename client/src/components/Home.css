@@ -1,0 +1,4 @@
+.busquedas {
+    display: flex;
+    flex-direction: row;
+}
