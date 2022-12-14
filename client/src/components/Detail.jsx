@@ -15,7 +15,7 @@ export default function Detail(props) {
   }, [dispatch, props.match.params.id]);
 
   return (
-    <div>
+    <div className="card">
       <div className="contenedor">
           <h1>{pais.name}</h1>
           <img src={pais.flag} alt={pais.name} />
@@ -24,13 +24,13 @@ export default function Detail(props) {
           Tiene una población de {pais.poblacion} habitantes y su territorio se extiende por un área de {pais.area} kilómetros.</p>
 
           <p>Sus principales activities turísticas son:</p>
-          {pais.activities?.map((e) => {
+          {/* {pais.map((e) => {
           return (
-            <ul key={e.id}>
+            <li key={e.id}>
               <li>{e.activities}</li>
-            </ul>
+            </li>
           );
-        })}
+        })} */}
         </div>
       <Link to={"/home"}>
         <button className="btn">Volver</button>
