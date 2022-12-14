@@ -1,6 +1,7 @@
 
 const initialState = {
-    countries : []
+    countries : [],
+    detail : []
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
@@ -9,6 +10,12 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 countries: action.payload
             }
+           case 'GET_DETAILS':
+            return {
+                ...state,
+                detail: action.payload
+
+            } 
             default:
         return state;
     }

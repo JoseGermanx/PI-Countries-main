@@ -1,4 +1,4 @@
-import { React, useState, useEffect} from "react";
+import { React, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../actions";
 import { Link } from "react-router-dom";
@@ -48,7 +48,7 @@ export default function Home() {
         </select>
         {allCountries?.map((e) => {
           return (
-            <Link to={"/pais/" + e.id} key={e.id}>
+            <Link to={"/countries/" + e.id} key={e.id}>
                 <Card name={e.name} continente={e.continente} flag={e.flag}/>
             </Link>
           );
