@@ -11,7 +11,8 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   native: false,
   dialectOptions: {
     ssl: {
-      require: 'true'
+      require: true,
+      rejectUnauthorized: false 
     }
   }
    // lets Sequelize know we can use pg-native for ~30% more speed
