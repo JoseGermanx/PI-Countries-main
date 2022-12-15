@@ -1,3 +1,9 @@
+.mostrar-ciudades {
+      display: flex;
+      flex-direction: column;
+}
+
+
 .btn {
     /* Color del texo */
     

@@ -1,27 +1,35 @@
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {getByName} from '../actions'
 import './SearchBar.css';
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar() {
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
 
-    const [city, setConuntry] = useState("");
+  function handleInputChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+    console.log(name)
+  }
+  function handleSumit(e) {
+    e.preventDefault();
+    dispatch(getByName(name))
+  }
 
-    function manejoCambio (e) {
-      setConuntry(city => city = e.target.value);
-    }
-
-  // acá va tu código
   return (
-    <form className="form" onSubmit={(e) => {
-      e.preventDefault();
-      onSearch(city);
-    }}>
+    <div>
       <input
         type="text"
-        placeholder="País..."
-        onChange={manejoCambio}
+        placeholder="Busca un país..."
+        onChange={(e) => handleInputChange(e)}
       />
-      <input className="btn" type="submit" value="Buscar" />
-    </form>
+      <button
+      className="btn"
+      type="submit"
+      onClick={(e) => handleSumit(e)}
+      >Buscar</button>
+    </div>
   );
 
   

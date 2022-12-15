@@ -1,6 +1,6 @@
 import { React, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../actions";
+import { getCountries} from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
@@ -9,13 +9,13 @@ import "./Home.css";
 export default function Home() {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries);
-
-  useEffect(() => {
+  
+    useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
   function handleClick(e) {
-    e.prevendefault();
+    e.preventDefault();
     dispatch(getCountries());
   }
 
@@ -23,14 +23,14 @@ export default function Home() {
     <div>
       <Link className="btn"to={"/"}>Salir</Link>
       <h1>Paises y turismo</h1>
-      <button className="btn"
+      {/* <button className="btn"
         onClick={(e) => {
           handleClick(e);
         }}
       >
         {" "}
         Volver a cargar ciudades
-      </button>
+      </button> */}
       <SearchBar />
       <div>
         <select>
@@ -46,6 +46,7 @@ export default function Home() {
           <option value="asc"> Ascendente</option>
           <option value="des"> Descendente</option>
         </select>
+        <div className="mostrar-ciudades">
         {allCountries?.map((e) => {
           return (
             <Link to={"/countries/" + e.id} key={e.id}>
@@ -54,6 +55,15 @@ export default function Home() {
           );
         })}
       </div>
+      </div>
+      <button className="btn"
+        onClick={(e) => {
+          handleClick(e);
+        }}
+      >
+        {" "}
+        Volver a cargar ciudades
+      </button>
     </div>
   );
 }

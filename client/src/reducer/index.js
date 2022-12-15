@@ -1,7 +1,8 @@
 
 const initialState = {
     countries : [],
-    detail : []
+    detail : [],
+    name :[]
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
@@ -15,7 +16,12 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 detail: action.payload
 
-            } 
+            }
+            case 'GET_NAME':
+            return {
+                ...state,
+                countries: action.payload
+            }
             default:
         return state;
     }
