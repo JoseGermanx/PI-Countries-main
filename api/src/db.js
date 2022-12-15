@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_PORT
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/countries_45wz?ssl=true`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/countries_45wz`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false,
   dialectOptions: {
