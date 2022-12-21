@@ -1,29 +1,39 @@
 .card {
-    background-color: rgb(229, 242, 245);
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    margin-left:auto;
-    margin-right: auto;
-    border: none;
-    border-radius: 20px;
-    padding: 10px;
-    margin-top: 20px;
-    overflow: hidden;
-    align-items: center;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    
+background: rgba(255, 255, 255, 0.459);
+  text-decoration: none;
+  color: rgb(59, 55, 55);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
 }
 
-h3 h5 {
-    align-items: right;
-    padding-top: 3px;
-}
+.card:hover {
+    top: -2px;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.2);
+    background: rgba(44, 46, 46, 0.687);
+    color: rgb(244, 244, 244);
+  }
+.card .thumb {
+    padding-bottom: 0%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .card h3 {
+    padding: 6px;
+    font-size: 20px;
+    margin-top: 2px;
+    margin-bottom: 5px;
+  }
+
+  .card h5 {
+    font-size: 15px;
+  }
 img {
-    width: 60%;
-    border-radius:9px;
-}
-body {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+  
 }

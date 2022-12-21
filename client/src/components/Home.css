@@ -7,13 +7,6 @@
 }
 
 .mostrar-ciudades {
-  /* display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-gap: 10px;
-      height: auto;
-      word-wrap: break-word;
-      overflow: hidden;
-      align-items: start; */
   width: 90%;
   max-width: 1240px;
   margin: 0 auto;
@@ -24,6 +17,9 @@
   grid-template-rows: auto;
   grid-gap: 20px;
 }
+.mostrar-ciudades a {
+  text-decoration: none;
+}
 .card {
       width: 100%
 }
@@ -32,9 +28,7 @@
       .mostrar-ciudades {
         grid-template-columns: repeat(2, 1fr);
       }
-      .card {
-            width: 75%
-      }
+      
       
     }
 
@@ -42,17 +36,13 @@
       .mostrar-ciudades {
         grid-template-columns: repeat(3, 1fr);
       }
-      .card {
-            width: 75%
-      }
+      
     }
     @media only screen and (min-width: 1200px) {
       .mostrar-ciudades {
         grid-template-columns: repeat(5, 1fr);
       }
-      .card {
-            width: 80%
-      }
+      
     }
 
 
