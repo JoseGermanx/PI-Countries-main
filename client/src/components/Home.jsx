@@ -52,10 +52,10 @@ function handleFilterContinent(e) {
         Volver a cargar ciudades
       </button> */}
         <div>
-        <select>
+        {/* <select>
           <option value="asc"> Ascendente</option>
           <option value="des"> Descendente</option>
-        </select>
+        </select> */}
         <select onChange={ (e) => {
           handleFilterContinent(e);
         } }>
@@ -68,10 +68,10 @@ function handleFilterContinent(e) {
           <option value="Antarctica">Antartida</option>
           <option value="Asia">Asia</option>
         </select>
-        <select>            
+        {/* <select>            
           <option value="asc"> Mayor población</option>
           <option value="des"> Menor población</option>
-        </select>
+        </select> */}
       <Paginado
       countryPerPage = {countryPerPage}
       allCountries= {allCountries.length}
@@ -83,7 +83,9 @@ function handleFilterContinent(e) {
         <div className="mostrar-ciudades">
         {currentCountrys?.map((e) => {
           return (
-            <Link to={"/countries/" + e.id} key={e.id}>
+            <Link
+            to={"/countries/" + e.id}
+            key={e.id}>
                 <Card name={e.name} continente={e.continente} flag={e.flag}/>
             </Link>
           );

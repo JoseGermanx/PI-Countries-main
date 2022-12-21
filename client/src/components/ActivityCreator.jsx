@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { postActivity, getCountries } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
+import './Activity.css'
 
 
 export default function ActivityCreator() {
@@ -14,7 +15,7 @@ export default function ActivityCreator() {
     dificultad: "",
     duracion: "",
     temporada: "",
-    pais: "",
+    pais: [],
   });
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function ActivityCreator() {
   function handleSelect(e) {
     setInput({
       ...input,
-      pais: e.target.value,
+      pais: [...input.pais, e.target.value],
     });
     console.log(input);
   }
@@ -45,7 +46,7 @@ export default function ActivityCreator() {
       dificultad: "",
       duracion: "",
       temporada: "",
-      pais: "",
+      pais: [],
     });
     history.push("/home");
   }
@@ -110,6 +111,7 @@ export default function ActivityCreator() {
               </option>
             ))}
           </select>
+          <ul><li>{input.pais.map(el => el + " ,")}</li></ul>
         </div>
         <button type="submit">Crear actividad</button>
       </form>

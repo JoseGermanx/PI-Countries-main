@@ -19,7 +19,8 @@ export default function Detail(props) {
 
 
   return (
-    <div className="body">
+    <div className="detail">
+    <NavBar /> 
      <div className="card-detail">
       <div className="contenedor">
         <div className="bloque-iz">
@@ -33,7 +34,6 @@ export default function Detail(props) {
           <p>Región: {pais.subregion}</p>
           <p> Población: {pais.poblacion} habitantes</p>
           <p> Área: {pais.area}</p>          
-          </div>
           </div>
           <div className="bloque-inf">
           <p>Actividades turísticas registradas por nuestros usuarios:</p>
@@ -56,10 +56,13 @@ export default function Detail(props) {
         
         </div>}</div>
         </div>
+          </div>
+         
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>
     </div>
+    
     </div>
   );
 }

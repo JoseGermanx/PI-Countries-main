@@ -2,7 +2,7 @@
   background-image: url(../../public/bg.jpg);
   background-attachment: fixed;
   background-position: 50% 50%;
-  background-size: 100%;
+  background-size: 200%;
   background-repeat: no-repeat;
 }
 
@@ -41,6 +41,13 @@
     @media only screen and (min-width: 1200px) {
       .mostrar-ciudades {
         grid-template-columns: repeat(5, 1fr);
+      }
+      .container {
+        background-image: url(../../public/bg.jpg);
+        background-attachment: fixed;
+        background-position: 50% 50%;
+        background-size: 100%;
+        background-repeat: no-repeat;
       }
       
     }

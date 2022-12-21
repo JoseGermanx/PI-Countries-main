@@ -13,6 +13,7 @@ export default function NavBar() {
       return (
       <Nav>
         <Logo href="">
+        <img src="/logo_mundo.jpg" alt="Countries App" />
           Countries<span>App</span>
         </Logo>
         <Hamburger onClick={() => setIsOpen(!isOpen)}>

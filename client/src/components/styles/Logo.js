@@ -10,4 +10,7 @@ export const Logo = styled.a`
     font-weight: 300;
     font-size: 1.3rem;
   }
+  img {
+    width:25px
+   }
 `;
