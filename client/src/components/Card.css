@@ -1,14 +1,29 @@
 .card {
-    width: 200px;
+    background-color: rgb(229, 242, 245);
+    width: 150px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     margin-left:auto;
     margin-right: auto;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+    align-items: center;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     
 }
 
+h3 h5 {
+    align-items: right;
+    padding-top: 3px;
+}
 img {
+    width: 60%;
     border-radius:9px;
-
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }

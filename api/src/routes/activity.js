@@ -2,7 +2,7 @@ const { Country, Activity } = require("../db");
 const getAllCountry = require('../controllers/getDb');
 
 const activity = async (req, res) => {
-   const { nombre, dificultad, duración, temporada, pais } = req.body;
+   const { nombre, dificultad, duracion, temporada, pais } = req.body;
    let countriesTotal = await getAllCountry();
    let countryName = await countriesTotal.filter((el) =>
    el.name === pais);
@@ -16,7 +16,7 @@ const activity = async (req, res) => {
         const newActivity = await Activity.create({ 
           nombre: nombre,
           dificultad: dificultad,
-          duracion: duración,
+          duracion: duracion,
           temporada:temporada
          });
          const countrieRow = await Country.findByPk(pais);    

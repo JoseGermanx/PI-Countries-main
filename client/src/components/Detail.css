@@ -1,4 +1,14 @@
-.card {
+.body {
+    background-image: url(../../public/bg.jpg);
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.card-detail {
+    background-color: rgba(164, 228, 244, 0.955);
+    width: 700px;
     border: 2px solid;
     border-radius: 20px;
     padding: 10px;
@@ -7,17 +17,42 @@
     height: 50%;
     margin-top: 20px;
     margin-left:auto;
-    margin-right: auto;
+    margin-right: auto;    
 
 }
 
 .contenedor {
-    width: 200px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 50%;
     margin-left:auto;
     margin-right: auto;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bloque-izq {
+    overflow: hidden;
+}
+
+.card-detail .contenedor .bloque-izq #card-img img {
+    width: 25px;
+    border-radius:9px;
+    overflow: hidden;
+}
+
+.bloque-der p {
+    margin-left: 10px;
+    position: relative;
+    display: block;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.bloque-der h2 h3 {
+    font-size: 1.2em;
+    text-align: left;
 }
 
 .btn {
@@ -58,4 +93,15 @@
     .btn:hover {
           background-color: #008CBA;
           color: white;
+     }
+
+     .actividades-list {
+        display: flex;
+        height: auto;
+        word-wrap: break-word;
+        overflow: hidden;
+        align-items: flex-start;
+     }
+     ul {
+        list-style:none
      }

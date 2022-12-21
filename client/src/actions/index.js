@@ -1,6 +1,6 @@
 
 import axios from "axios";
-const api = 'https://countriespi-back.onrender.com'
+const api = 'http://localhost:3001'
 
 export function getCountries() {
   return async function (dispatch) {
@@ -40,3 +40,21 @@ export function getByName(name) {
     console.log(e);
   }
  }}
+
+ export function postActivity (payload) {
+  
+  return async function (dispatch) {
+    const resPost = await axios.post(`${api}/activities`, payload)
+    console.log(resPost)
+    return resPost;
+  }
+ }
+
+ export function filterCountryByConti(payload) {
+    console.log(payload)
+     return {
+      type: "FILTER_COUNTRIES_CONTINENT",
+      payload
+    };
+  
+ }

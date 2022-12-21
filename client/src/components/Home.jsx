@@ -1,14 +1,30 @@
-import { React, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries} from "../actions";
+import { getCountries, filterCountryByConti} from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import SearchBar from "./SearchBar";
+import Paginado from "./Paginado";
+import NavBar from "./NavBar";
 import "./Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries);
+
+//ESTADOS LOCALES
+const [currentPage, setCurrentPage] = useState(1);
+const [countryPerPage, setCountryPerPage] = useState(10);
+
+//CALCULO DE INDEXES
+const indexLastCountry = currentPage * countryPerPage // 9
+const indexFirstCountry = indexLastCountry - countryPerPage // 0
+
+const currentCountrys =allCountries.slice(indexFirstCountry, indexLastCountry);
+
+const paginado = (pageNumber) => {
+  setCurrentPage(pageNumber);
+}
+
   
     useEffect(() => {
     dispatch(getCountries());
@@ -19,9 +35,13 @@ export default function Home() {
     dispatch(getCountries());
   }
 
+function handleFilterContinent(e) {
+  dispatch(filterCountryByConti(e.target.value));
+}
+
   return (
-    <div>
-      <Link className="btn"to={"/"}>Salir</Link>
+    <div className="container">
+      <NavBar />      
       <h1>Paises y turismo</h1>
       {/* <button className="btn"
         onClick={(e) => {
@@ -31,23 +51,37 @@ export default function Home() {
         {" "}
         Volver a cargar ciudades
       </button> */}
-      <SearchBar />
-      <div>
+        <div>
         <select>
           <option value="asc"> Ascendente</option>
           <option value="des"> Descendente</option>
         </select>
-        <select>
-          <option value="all">Todos los continentes</option>
-          <option value="con">Norte América</option>
-          <option value="act">Europa</option>
+        <select onChange={ (e) => {
+          handleFilterContinent(e);
+        } }>
+          <option value="All">Todos los continentes</option>
+          <option value="North America">Norte América</option>
+          <option value="Europe">Europa</option>
+          <option value="South America">Sur América</option>
+          <option value="Oceania">Oceanía</option>
+          <option value="Africa">Africa</option>
+          <option value="Antarctica">Antartida</option>
+          <option value="Asia">Asia</option>
         </select>
         <select>            
-          <option value="asc"> Ascendente</option>
-          <option value="des"> Descendente</option>
+          <option value="asc"> Mayor población</option>
+          <option value="des"> Menor población</option>
         </select>
+      <Paginado
+      countryPerPage = {countryPerPage}
+      allCountries= {allCountries.length}
+      paginado= {paginado}
+      />
+
+
+
         <div className="mostrar-ciudades">
-        {allCountries?.map((e) => {
+        {currentCountrys?.map((e) => {
           return (
             <Link to={"/countries/" + e.id} key={e.id}>
                 <Card name={e.name} continente={e.continente} flag={e.flag}/>
