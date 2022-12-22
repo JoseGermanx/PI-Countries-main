@@ -29,20 +29,22 @@ export default function Detail(props) {
           <h3>Capital: {pais.capital}</h3>  
           <h5>Código de país: {pais.id}</h5>
           </div>
-          <div className="bloque-der">                  
-          <p>Continente: {pais.continente}</p>
-          <p>Región: {pais.subregion}</p>
-          <p> Población: {pais.poblacion} habitantes</p>
-          <p> Área: {pais.area}</p>          
-          </div>
+          <div className="bloque-der">
+          <div><span><h2>Datos relevantes sobre {pais.name}</h2></span></div>
+          <div className="span-text">            
+          <span><p>Continente: {pais.continente}</p></span>  
+          <span><p>Región: {pais.subregion}</p></span> 
+          <span><p> Población: {pais.poblacion} habitantes</p></span> 
+          <span><p> Área: {pais.area}</p></span>
+          </div>   
           <div className="bloque-inf">
           <p>Actividades turísticas registradas por nuestros usuarios:</p>
           <div className="actividades-list">
-           {pais.activities ?  pais.activities.map((e) => {
+           {pais.activities? pais.activities.map((e) => {
           return (
-            <div>
+            <div className="actividades">
             <li key={e.id}>
-              <ul><h3>Actividad: {e.nombre}</h3>
+              <ul><h3>{e.nombre}</h3>
                  <p>Temporada: {e.temporada}<br/>
                   Duración: {e.duracion} horas<br/>
                   Dificultad: {e.dificultad}
@@ -55,8 +57,10 @@ export default function Detail(props) {
                   Registra una actividad aquí:<br/><Link to={"/activity"}>Cargar una actividad</Link> </p>
         
         </div>}</div>
-        </div>
+        </div>     
           </div>
+          </div>
+ 
          
       <Link to={"/home"}>
         <button className="btn">Volver</button>
