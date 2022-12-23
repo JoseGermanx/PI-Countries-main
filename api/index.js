@@ -29,9 +29,9 @@ conn.sync({ force: true}).then(() => {
     const allCountries = Country.findAll(); // se buscan todos los datos en DB
 
     // se verifica si la tabla countries esta vacia
-    if (allCountries.length === 0) {
+    if (!allCountries.length) {
       const apiUrl = await axios.get("https://restcountries.com/v3/all");
-      const apiInfor = apiUrl.data.map((el) => {
+      const apiInfor = await apiUrl.data.map((el) => {
     return {
       id: el.cca3,
       name: el.name.common,
