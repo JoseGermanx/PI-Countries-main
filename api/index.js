@@ -23,7 +23,7 @@ const axios = require("axios");
 const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: false}).then(() => {
+conn.sync({ force: true}).then(() => {
   console.log('......');
   server.listen(port, async () => {
     const allCountries = Country.findAll(); // se buscan todos los datos en DB
