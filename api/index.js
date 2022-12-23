@@ -46,6 +46,7 @@ conn.sync({ force: true}).then(() => {
       area: el.area,
       poblacion: el.population,
     };
+    console.log(apiInfor)
   });
       await Country.bulkCreate(apiInfor);
       console.log('Ejecutada bulkCreate en country model ✔ ');
