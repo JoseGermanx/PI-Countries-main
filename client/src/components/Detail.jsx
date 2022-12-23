@@ -59,9 +59,7 @@ export default function Detail(props) {
         </div>}</div>
         </div>     
           </div>
-          </div>
- 
-         
+          </div>        
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>

@@ -23,13 +23,13 @@ const axios = require("axios");
 const port = process.env.PORT || 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: true}).then(() => {
+conn.sync({ force: false}).then(() => {
   console.log('......');
   server.listen(port, async () => {
     const allCountries = Country.findAll(); // se buscan todos los datos en DB
 
     // se verifica si la tabla countries esta vacia
-    if (!allCountries.length) {
+    if (allCountries.length === 0) {
       const apiUrl = await axios.get("https://restcountries.com/v3/all");
       const apiInfor = await apiUrl.data.map((el) => {
     return {
@@ -48,14 +48,10 @@ conn.sync({ force: true}).then(() => {
     };
     console.log(apiInfor)
   });
-      await Country.bulkCreate(apiInfor);
-      console.log('Ejecutada bulkCreate en country model ✔ ');
-      console.log('...... espera unos segundos');
-      console.log('...... casi listo el server');
-      console.log('🚀 ');
-      
+      await Country.bulkCreate(apiInfor)
+      .then(() => console.log("Ejecutada bulkCreate en country model ✔",'...... casi listo el server','🚀 ' ));;
     } else {
-      console.log('La base de datos de paises está cargada')
+      console.log('La base de datos de paises ya está cargada')
     }
     console.log(`%s listening at ${port} ✈ ` ); // eslint-disable-line no-console
   });

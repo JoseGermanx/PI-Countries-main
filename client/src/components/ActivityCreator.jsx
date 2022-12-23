@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { postActivity, getCountries } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
+import NavBar from "./NavBar";
 import './Activity.css'
 
 
@@ -87,6 +88,7 @@ export default function ActivityCreator() {
 
   return (
     <div>
+      <NavBar /> 
       <h1>Crea una actividad turística</h1>
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
@@ -153,6 +155,9 @@ export default function ActivityCreator() {
         </div>
         <button type="submit">Crear actividad</button>
       </form>
+      <Link to={"/home"}>
+        <button className="btn">Volver</button>
+      </Link>
     </div>
   );
 }

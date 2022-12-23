@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import NavBar from "./NavBar";
+import SearchBar from "./SearchBar";
 import "./Home.css";
 
 export default function Home() {
@@ -41,16 +42,9 @@ function handleFilterContinent(e) {
 
   return (
     <div className="container">
-      <NavBar />      
+      <NavBar />       
       <h1>Paises y turismo</h1>
-      {/* <button className="btn"
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        {" "}
-        Volver a cargar ciudades
-      </button> */}
+      <SearchBar />
         <div>
         {/* <select>
           <option value="asc"> Ascendente</option>

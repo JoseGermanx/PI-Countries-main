@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
-
 import {MenuLink} from '../components/styles/MenuLink'
 import {Nav }from '../components/styles/Nav'
 import {Logo} from '../components/styles/Logo'
@@ -26,10 +24,7 @@ export default function NavBar() {
           <MenuLink href="">Acerca de esta app</MenuLink>
           <MenuLink href="">Contacto</MenuLink>
           <MenuLink ><Link to={"/"}>Salir</Link></MenuLink>
-        </Menu>
-         <SearchBar />       
-        {/* <Link className="btn"to={"/activity"}>Cargar una actividad</Link> */}
-        
+        </Menu>                
       </Nav>
     );
 }
