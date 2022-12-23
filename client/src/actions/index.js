@@ -1,6 +1,6 @@
 
 import axios from "axios";
-const api = 'http://localhost:3001'
+const api = 'https://countriespi-back.onrender.com'
 
 export function getCountries() {
   return async function (dispatch) {
