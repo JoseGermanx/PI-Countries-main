@@ -3,20 +3,21 @@ const getAllCountry = require('../controllers/getDb');
 
 const activity = async (req, res) => {
    const { nombre, dificultad, duracion, temporada, pais } = req.body;
-      const newActivity = await Activity.create({ 
+   const countryDB = await Country
+      .findAll({ where: { id: pais } })  
+   
+   const newActivity = await Activity.create({ 
       nombre,
       dificultad,
       duracion,
       temporada
-     });
-
-     const countryDB = await Country.findAll({
-      where: { id: pais }
-     })
-
-     newActivity.addCountry(countryDB);
-     res.status(200).send('Actividad creada con éxito')
-
+     }).then(act =>{
+      res.json(act);
+      act.addCountry(countryDB);   
+   })
+   .catch (err => {
+      res.json(err);
+   }) ;
     }
 
     module.exports = activity;

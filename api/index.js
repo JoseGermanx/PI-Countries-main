@@ -26,12 +26,11 @@ const port = process.env.PORT || 3001;
 conn.sync({ force: false}).then(() => {
   console.log('......');
   server.listen(port, async () => {
-    const allCountries = Country.findAll(); // se buscan todos los datos en DB
+    const allCountries = Country.findAll(); // Consulto por todos los datos en DB
 
-    // se verifica si la tabla countries esta vacia
-    if (allCountries.length === 0) {
-      const apiUrl = await axios.get("https://restcountries.com/v3/all");
-      const apiInfor = await apiUrl.data.map((el) => {
+    if (allCountries.length === 0) { // verifico si la tabla countries esta vacia
+      const apiUrl = await axios.get("https://restcountries.com/v3/all"); // si está vacia, ejecuto axios
+      const apiInfor = await apiUrl.data.map((el) => { // Guardo datos de la api en una variable
     return {
       id: el.cca3,
       name: el.name.common,
@@ -46,11 +45,10 @@ conn.sync({ force: false}).then(() => {
       area: el.area,
       poblacion: el.population,
     };
-    console.log(apiInfor)
-  });
-      await Country.bulkCreate(apiInfor)
+     });
+      await Country.bulkCreate(apiInfor) // inserto en lotes los datos de la api en la tabla de la base de datos
       .then(() => console.log("Ejecutada bulkCreate en country model ✔",'...... casi listo el server','🚀 ' ));;
-    } else {
+    } else { // si la tabla ya tenia datos, avanzo 
       console.log('La base de datos de paises ya está cargada')
     }
     console.log(`%s listening at ${port} ✈ ` ); // eslint-disable-line no-console
