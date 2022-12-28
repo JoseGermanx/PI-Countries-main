@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, filterCountryByConti} from "../actions";
+import { getCountries, filterCountryByConti, orderByName} from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -15,6 +15,7 @@ export default function Home() {
 //ESTADOS LOCALES
 const [currentPage, setCurrentPage] = useState(1);
 const [countryPerPage, setCountryPerPage] = useState(10);
+const [orden, setOrden] = useState('');
 
 //CALCULO DE INDEXES
 const indexLastCountry = currentPage * countryPerPage // 9
@@ -39,6 +40,12 @@ const paginado = (pageNumber) => {
 function handleFilterContinent(e) {
   dispatch(filterCountryByConti(e.target.value));
 }
+function handleSort(e) {
+  e.preventDefault();
+  dispatch(orderByName(e.target.value));
+  setCurrentPage(1);
+  setOrden(`Ordenado ${e.target.value}`)
+}
 
   return (
     <div className="container">
@@ -62,18 +69,17 @@ function handleFilterContinent(e) {
           <option value="Antarctica">Antartida</option>
           <option value="Asia">Asia</option>
         </select>
-        {/* <select>            
-          <option value="asc"> Mayor población</option>
-          <option value="des"> Menor población</option>
-        </select> */}
+        <select onChange={ (e) => {
+          handleSort(e);
+        } }>
+         <option value="asc"> Ordenar A - Z</option>
+          <option value="des"> Ordenar Z - A</option>
+        </select>
       <Paginado
       countryPerPage = {countryPerPage}
       allCountries= {allCountries.length}
       paginado= {paginado}
       />
-
-
-
         <div className="mostrar-ciudades">
         {currentCountrys?.map((e) => {
           return (

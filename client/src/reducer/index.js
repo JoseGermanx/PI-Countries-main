@@ -35,6 +35,31 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 countries: statusFilter
             }
+            case 'ORDER_NAME':
+                const sortArr = action.payload === 'asc' ?
+                state.countries.sort(function (a, b) {
+                    if ( a.name > b.name) {
+                        return 1;
+                    }
+                    if (b.name > a.name) {
+                        return -1;
+                    }
+                    return 0
+                    
+                }) :
+                state.countries.sort(function (a, b) {
+                    if ( a.name > b.name) {
+                        return -1;
+                    }
+                    if (b.name > a.name) {
+                        return 1;
+                    }
+                    return 0;
+                })
+                return {
+                    ...state,
+                    countries: sortArr
+                }
             
             default:
         return state;

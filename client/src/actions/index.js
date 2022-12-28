@@ -56,6 +56,12 @@ export function getByName(name) {
      return {
       type: "FILTER_COUNTRIES_CONTINENT",
       payload
-    };
-  
+    };  
  }
+
+ export function orderByName(payload) {
+  return {
+    type: "ORDER_NAME",
+    payload
+  };
+}
