@@ -46,7 +46,7 @@ function rootReducer (state= initialState, action) {
                     }
                     return 0
                     
-                }) : action.payload === 'des' ?
+                }) :
                 state.countries.sort(function (a, b) {
                     if ( a.name > b.name) {
                         return -1;
@@ -55,7 +55,7 @@ function rootReducer (state= initialState, action) {
                         return 1;
                     }
                     return 0;
-                }) : allCountries;
+                })
                 return {
                     ...state,
                     countries: sortArr
