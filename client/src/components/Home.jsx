@@ -72,6 +72,7 @@ function handleSort(e) {
         <select onChange={ (e) => {
           handleSort(e);
         } }>
+          <option value="all" > Ordenar alfabeticamente</option>
          <option value="asc"> Ordenar A - Z</option>
           <option value="des"> Ordenar Z - A</option>
         </select>
