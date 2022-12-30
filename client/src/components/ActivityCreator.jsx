@@ -12,7 +12,10 @@ export default function ActivityCreator() {
   const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
-  
+  const options = countries.map(function (op){
+    return {value:op.id, label:op.name}
+  })
+
   const [input, setInput] = useState({
     nombre: "",
     dificultad: "",
@@ -72,10 +75,10 @@ export default function ActivityCreator() {
       return;
     }
 
-    // if( pais.length === 0 ) {
-    //   alert('Selcción al menos 1 país');
-    //   return;
-    // }
+    if( pais.length === 0 ) {
+      alert('Selcción al menos 1 país');
+      return;
+    }
 
     dispatch(postActivity(input));
     setInput({
@@ -90,13 +93,13 @@ export default function ActivityCreator() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar /> 
       <h1>Crea una actividad turística</h1>
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
           <label>Nombre de la actividad:</label>
           <input
-            id="name"
+          id="name"
             placeholder="Ejem: pasear a caballo"
             type="text"
             value={input.nombre}
@@ -107,9 +110,12 @@ export default function ActivityCreator() {
         <div>
           <label>Dificultad:</label>
           <input
-            id="dificult"
+          id="dificult"
             placeholder="del 1 al 5"
-            type="text"
+            type="range"
+            min="1"
+            max="5"
+            step="1"
             value={input.dificultad}
             name="dificultad"
             onChange={(e) => handleChange(e)}
@@ -118,9 +124,9 @@ export default function ActivityCreator() {
         <div>
           <label>Duración:</label>
           <input
-            id="time"
+          id="time"
             placeholder="en horas"
-            type="text"
+            type="number"
             value={input.duracion}
             name="duracion"
             onChange={(e) => handleChange(e)}
@@ -128,12 +134,8 @@ export default function ActivityCreator() {
         </div>
         <div>
           <label>Temporada:</label>
-          <select
-            id="season"
-            name="temporada"
-            onChange={(e) => handleChange(e)}
-          >
-            <option value="">Elige una temporada</option>
+          <select id="season" name="temporada" onChange={(e) => handleChange(e)}>
+          <option value="">Elige una temporada</option>
             <option value="Verano">Verano</option>
             <option value="Invierno">Invierno</option>
             <option value="Primavera">Primavera</option>
@@ -159,16 +161,15 @@ export default function ActivityCreator() {
           //onChange={(e) => handleSelect(e)}      
           /> */}
           
-          <input list="country" onSelect={(e) => handleSelect(e)}>
-          </input>
-          <datalist id="country"  >
+          <select id="country" multiple name="pais" onChange={(e) => handleSelect(e)}>
+          <option value="">Elige un país</option>
             {countries.map((country) => (
-              <option label={country.name} value={country.id} key={country.id} />
+              <option value={country.id} key={country.id}>
+                {country.name}
+              </option>
             ))}
-          </datalist>
-          <ul>
-            <li>{input.pais.map((el) => el + " ,")}</li>
-          </ul>
+          </select>
+          <ul><li>{input.pais.map(el => el + " ,")}</li></ul>
         </div>
         <button type="submit">Crear actividad</button>
       </form>
