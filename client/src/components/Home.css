@@ -100,15 +100,18 @@ body {
 .paginado ul li a {
   display: block;
   padding: 5px 10px;
-  color: #fff;
-  background: #024959;
+  color: rgb(4, 70, 42);
+  background: #feffff;
   text-decoration: none;
   font-size: 7px;
+  border: solid 0.1em;
 }
 
 .paginado ul li a:hover {
-  background: #037e8c;
+  background: #282a2afd;
   cursor: pointer;
+  color: #fff;
+  border: solid 0.1em;
 }
 
 .paginado ul li .active {
