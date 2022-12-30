@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { postActivity, getCountries } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
 import NavBar from "./NavBar";
 import './Activity.css'
 
@@ -11,6 +12,9 @@ export default function ActivityCreator() {
   const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
+  const options = countries.map(function (op){
+    return {value:op.id, label:op.name}
+  })
 
   const [input, setInput] = useState({
     nombre: "",
@@ -39,11 +43,12 @@ export default function ActivityCreator() {
     });
     console.log(input);
   }
+
   function handleSumit(e) {
     e.preventDefault();
     console.log(input);
-
-    //validaciones de campos onSumit
+    
+   //validaciones de campos onSumit
     var name = document.getElementById('name').value;
     var dificultad = document.getElementById('dificult').value;
     var duracion = document.getElementById('time').value;
@@ -84,7 +89,7 @@ export default function ActivityCreator() {
       pais: [],
     });
     history.push("/home");
-  }
+  } 
 
   return (
     <div>
@@ -143,6 +148,16 @@ export default function ActivityCreator() {
         </div>
         <div>
           <label>País:</label>
+          {/* <Select
+          isMulti
+          name="pais"
+          id="country"
+          options={options}
+          className="basic-multi-select"
+          classNamePrefix="select"
+          //onChange={(e) => handleSelect(e)}      
+          /> */}
+          
           <select id="country" multiple name="pais" onChange={(e) => handleSelect(e)}>
           <option value="">Elige un país</option>
             {countries.map((country) => (
