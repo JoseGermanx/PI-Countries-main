@@ -7,6 +7,7 @@
     margin-top: 70px;
     height: 800px;
 }
+
 .card-detail {
     background-color: rgba(160, 219, 231, 0.795);
    padding: 10px;
@@ -15,9 +16,10 @@
 }
 
 .contenedor {
+    padding-top: 0%;
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
     background-color: rgba(249, 249, 249, 0.869);
-    width: 90%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     height: 500px;
@@ -53,6 +55,7 @@
     height: auto;
     word-wrap: break-word;
 }
+
 .bloque-der .span-text {
     align-items: flex-start;
     margin-left:  10px;
@@ -60,6 +63,7 @@
     flex-direction: row;
 
 }
+
 .bloque-der .span-text span {
        padding: 1em;
 }
@@ -67,6 +71,22 @@
 .bloque-der h2 h3 {
     font-size: 1.2em;
     text-align: left;
+}
+
+.bloque-inf {
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
+    background-color: rgba(249, 249, 249, 0.869);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    margin-left:auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding-top: 5%;
+}
+.bloque-inf p {
+    padding-top: 0%;
 }
 
 .btn {
@@ -115,7 +135,7 @@
         height: auto;
         word-wrap: break-word;
         overflow: hidden;
-        align-items: flex-start;
+        align-items: center;
      }
      .actividades li {
         list-style:none
