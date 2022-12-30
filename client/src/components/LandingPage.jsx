@@ -7,7 +7,7 @@ import './LandingPage.css'
 export default function LandingPage() {
   return (
      <div className="LandingPage">
-      <img src="/logo_mundo.jpg" alt="Countries App" />
+      {/* <img src="/logo_mundo.jpg" alt="Countries App" /> */}
         <Logo>
           Countries<span>App</span>
         </Logo>
