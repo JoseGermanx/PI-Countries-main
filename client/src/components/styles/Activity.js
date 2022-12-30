@@ -6,8 +6,7 @@ export const createActivity = styled.form`
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
-  }
-  
+    
   ul {
     list-style: none;
     padding: 0;
@@ -50,7 +49,4 @@ export const createActivity = styled.form`
   button {
     margin-left: .5em;
   }
-
-
-
-`
+`;

@@ -36,7 +36,9 @@ export default function Detail(props) {
           <span><p>Región: {pais.subregion}</p></span> 
           <span><p> Población: {pais.poblacion} habitantes</p></span> 
           <span><p> Área: {pais.area}</p></span>
-          </div>   
+          </div>
+          </div>             
+          </div>
           <div className="bloque-inf">
           <p>Actividades turísticas registradas por nuestros usuarios:</p>
           <div className="actividades-list">
@@ -57,14 +59,11 @@ export default function Detail(props) {
                   Registra una actividad aquí:<br/><Link to={"/activity"}>Cargar una actividad</Link> </p>
         
         </div>}</div>
-        </div>     
-          </div>
+        </div>  
           </div>        
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>
-    </div>
-    
     </div>
   );
 }
