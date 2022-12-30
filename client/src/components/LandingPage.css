@@ -1,3 +1,10 @@
+body {
+      background-image: url(../../public/bg_countries.jpg);
+      background-attachment: fixed;
+      background-position: 50% 50%;
+      background-size: 200%;
+      background-repeat: no-repeat;
+}
 .LandingPage {
   display: flex;
   width: 100vw;
@@ -52,4 +59,7 @@
           color: white;
      }
 
+     ::-webkit-scrollbar {
+      display: none;
+  }
     
