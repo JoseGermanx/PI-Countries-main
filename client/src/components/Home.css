@@ -1,10 +1,7 @@
-.container {
-  background-image: url(../../public/bg.jpg);
-  background-attachment: fixed;
-  background-position: 50% 50%;
-  background-size: 200%;
-  background-repeat: no-repeat;
+body {
+  background-color: rgb(2, 39, 36);
 }
+
 
 .mostrar-ciudades {
   width: 90%;
@@ -42,14 +39,7 @@
       .mostrar-ciudades {
         grid-template-columns: repeat(5, 1fr);
       }
-      .container {
-        background-image: url(../../public/bg.jpg);
-        background-attachment: fixed;
-        background-position: 50% 50%;
-        background-size: 100%;
-        background-repeat: no-repeat;
-      }
-      
+            
     }
 
 
