@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(2, 39, 36);
+  background-color: rgb(164, 229, 224);
 }
 
 
@@ -42,46 +42,33 @@ body {
             
     }
 
-
-.btn {
-  /* Color del texo */
-
-  color: #0099cc;
-  /* Eliminar color de fondo */
-
-  background: transparent;
-  /* Grosor del borde, estilo de línea y color */
-
-  border: 2px solid #0099cc;
-  /* Añadir esquinas curvadas */
-
-  border-radius: 6px;
-  /* Poner texto en mayúsculas */
-
-  border: none;
-  color: rgb(219, 39, 39);
-  padding: 8px 28px;
-  text-align: center;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.btn {
-  background-color: rgb(22, 95, 140);
-  color: rgb(253, 253, 253);
-  border: 2px solid rgb(22, 95, 140);
+    .btn {
+      border-radius: 6px;
+      background-color: rgb(22, 95, 140); 
+      color: rgb(253, 253, 253); 
+      border: 2px solid  rgb(22, 95, 140);
+      width: auto;
+      height: auto;
+      color: white;
+      padding: 8px 28px;
+      text-align: center;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: auto;
 }
 /* Al poner el curso encima (hover) */
 
 .btn:hover {
-  background-color: #008cba;
-  color: white;
-}
+      background-color: #008CBA;
+      color: white;
+      width: auto;
+ }
 
 .paginado {
   margin: 5px 0;

@@ -1,52 +1,49 @@
 import styled from "styled-components";
 
-export const createActivity = styled.form`
-    margin: 0 auto;
-    width: 400px;
-    padding: 1em;
-    border: 1px solid #CCC;
-    border-radius: 1em;
+export const CreateActivity = styled.form`
     
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    width:50%;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:rgb(164, 162, 199);
   
-  li + li {
-    margin-top: 1em;
-  }
-  
-  label {
-    /* Tamaño y alineación uniforme */
-    display: inline-block;
-    width: 90px;
-    text-align: right;
-  }
-  
-  input,
-  textarea {
-    font: 1em sans-serif;
-    width: 300px;
-    box-sizing: border-box;
-    border: 1px solid #999;
-  }
-  
-  input:focus,
-  textarea:focus {
-   border-color: #000;
-  }
-  
-  textarea {
-    vertical-align: top;
-    height: 5em;
-  }
-  
-  .button {
-    padding-left: 90px;
+  *{box-sizing:border-box;}
+    
+  form label{
+	width:100px;
+	font-weight:bold;
+	display:inline-block;
+	font-size: 1em;
 }
-  
-  button {
-    margin-left: .5em;
-  }
+
+form select,
+form input {
+	height: 100%;
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+	font-family: roboto,sans-serif;
+	color: grey;
+}
+
+form button{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+  	cursor:pointer;
+} 
 `;
+export const Container = styled.div`
+
+
+`

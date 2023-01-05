@@ -18,13 +18,20 @@ const [countryPerPage, setCountryPerPage] = useState(10);
 const [orden, setOrden] = useState('');
 
 //CALCULO DE INDEXES
+const max = Math.round(allCountries.length / countryPerPage);
 const indexLastCountry = currentPage * countryPerPage // 9
 const indexFirstCountry = indexLastCountry - countryPerPage // 0
-
 const currentCountrys =allCountries.slice(indexFirstCountry, indexLastCountry);
 
 const paginado = (pageNumber) => {
   setCurrentPage(pageNumber);
+  
+}
+function decrement() {
+  setCurrentPage(currentPage - 1);
+}
+function increment() {
+  setCurrentPage(currentPage + 1);
 }
 
   
@@ -44,11 +51,11 @@ function handleSort(e) {
   e.preventDefault();
   dispatch(orderByName(e.target.value));
   setCurrentPage(1);
-  setOrden(`Ordenado ${e.target.value}`)
+  setOrden(e.target.value)
 }
 
   return (
-    <div className="container">
+    <div className="container-home">
       <NavBar />       
       <h1>Paises y turismo</h1>
       <SearchBar />
@@ -76,11 +83,15 @@ function handleSort(e) {
          <option value="asc"> Ordenar A - Z</option>
           <option value="des"> Ordenar Z - A</option>
         </select>
+        <div className="paginador-contenedor">
       <Paginado
-      countryPerPage = {countryPerPage}
-      allCountries= {allCountries.length}
-      paginado= {paginado}
+      // countryPerPage = {countryPerPage}
+      // allCountries= {allCountries.length}
+      // paginado= {paginado}
+      currentPage={currentPage} setCurrentPage={setCurrentPage} max={max}
       />
+      
+      </div>
         <div className="mostrar-ciudades">
         {currentCountrys?.map((e) => {
           return (
@@ -92,6 +103,12 @@ function handleSort(e) {
           );
         })}
       </div>
+      <Paginado
+      // countryPerPage = {countryPerPage}
+      // allCountries= {allCountries.length}
+      // paginado= {paginado}
+      currentPage={currentPage} setCurrentPage={setCurrentPage} max={max}
+      />
       </div>
       <button className="btn"
         onClick={(e) => {

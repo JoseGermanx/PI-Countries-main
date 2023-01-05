@@ -3,10 +3,16 @@ const initialState = {
     allCountries: [],
     countries : [],
     detail : [],
-    name :[]
+    name :[],
+    flag: []
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
+        case 'GET_FLAGS':
+            return {
+                ...state,
+                flag: action.payload
+            }
         case 'GET_COUNTRIES':
             return {
                 ...state,

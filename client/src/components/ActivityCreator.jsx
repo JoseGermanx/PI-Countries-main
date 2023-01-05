@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { postActivity, getCountries } from "../actions";
+import { postActivity, getCountries, getFlags } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
 import NavBar from "./NavBar";
-import './Activity.css'
+//import {CreateActivity} from '../components/styles/Activity';
+import "./Activity.css"
 
 
 
@@ -12,9 +12,8 @@ export default function ActivityCreator() {
   const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
-  const options = countries.map(function (op){
-    return {value:op.id, label:op.name}
-  })
+  const flags = useSelector((state) => state.flag);
+    
 
   const [input, setInput] = useState({
     nombre: "",
@@ -24,9 +23,14 @@ export default function ActivityCreator() {
     pais: [],
   });
 
+  const [flag, setFlag] = useState({
+    flag: []
+  })
+
   useEffect(() => {
     dispatch(getCountries());
-  }, []);
+    dispatch(getFlags());
+  }, [dispatch]);
 
   function handleChange(e) {
     setInput({
@@ -35,13 +39,24 @@ export default function ActivityCreator() {
     });
     console.log(input);
   }
-
+  
   function handleSelect(e) {
     setInput({
       ...input,
-      pais: [...input.pais, e.target.value],
+     pais: [...input.pais, e.target.value],
+      
     });
     console.log(input);
+    const flagSelec = input.pais.find(element => element === flags.id);
+    if(flagSelec) {
+      flag.push(flags.flag);
+      setFlag({
+        ...flag,
+        flag: [...flag, flagSelec],
+      });
+    }    
+    
+    console.log(flag);
   }
 
   function handleSumit(e) {
@@ -88,16 +103,20 @@ export default function ActivityCreator() {
       temporada: "",
       pais: [],
     });
+    setFlag({
+      flag: []
+    });
     history.push("/home");
   } 
 
   return (
     <div>
       <NavBar /> 
+      
       <h1>Crea una actividad turística</h1>
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
-          <label>Nombre de la actividad:</label>
+          <label>Actividad:</label>
           <input
           id="name"
             placeholder="Ejem: pasear a caballo"
@@ -169,13 +188,16 @@ export default function ActivityCreator() {
               </option>
             ))}
           </select>
-          <ul><li>{input.pais.map(el => el + " ,")}</li></ul>
+          <label id="flag">
+          <ul><li>{input.pais.map(el => el + ", ")}</li></ul>
+          </label>
         </div>
         <button type="submit">Crear actividad</button>
       </form>
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>
+      
     </div>
   );
 }

@@ -2,6 +2,16 @@
 import axios from "axios";
 const api = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
+export function getFlags() {
+  return async function (dispatch) {
+    let json = await axios(`${api}/countries`, {});
+    return dispatch({
+      type: "GET_FLAGS",
+      payload: json.data,
+    });
+  };
+}
+
 export function getCountries() {
   return async function (dispatch) {
     let json = await axios(`${api}/countries`, {});

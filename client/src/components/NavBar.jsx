@@ -21,8 +21,6 @@ export default function NavBar() {
         </Hamburger>
         <Menu isOpen={isOpen}>
           <MenuLink ><Link to={"/activity"}>Cargar una actividad</Link></MenuLink>
-          <MenuLink href="">Acerca de esta app</MenuLink>
-          <MenuLink href="">Contacto</MenuLink>
           <MenuLink ><Link to={"/"}>Salir</Link></MenuLink>
         </Menu>                
       </Nav>
