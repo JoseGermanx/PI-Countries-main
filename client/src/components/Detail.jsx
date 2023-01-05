@@ -25,7 +25,7 @@ export default function Detail(props) {
       <div className="contenedor">
         <div className="bloque-iz">
           <h1>{pais.name}</h1>
-          <span id="card-img"><img src={pais.flag} alt={pais.name}/></span>
+          <div className="card-img"><img src={pais.flag} alt={pais.name}/></div>
           <h3>Capital: {pais.capital}</h3>  
           <h5>Código de país: {pais.id}</h5>
           </div>
@@ -34,8 +34,8 @@ export default function Detail(props) {
           <div className="span-text">            
           <span><p>Continente: {pais.continente}</p></span>  
           <span><p>Región: {pais.subregion}</p></span> 
-          <span><p> Población: {pais.poblacion} habitantes</p></span> 
-          <span><p> Área: {pais.area}</p></span>
+          <span><p>Población: {pais.poblacion} habitantes</p></span> 
+          <span><p>Área: {pais.area}</p></span>
           </div>
           </div>             
           </div>

@@ -10,7 +10,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
       return (
       <Nav>
-        <Logo href="">
+        <Logo href="/home">
         <img src="/logo_mundo.jpg" alt="Countries App" />
           Countries<span>App</span>
         </Logo>
