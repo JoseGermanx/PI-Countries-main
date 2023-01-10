@@ -68,14 +68,18 @@
   }
 
   .card .ver-mas button {
-    background-color: rgb(20, 36, 46);
+    background-color: rgb(37, 129, 186);
     color: white;
     font-size:0.4em;
     font-weight: 100;
+    border:0;
+    width: 50%;
+    height: 30px;
+    border-radius: 3px;
   }
 
   .card .ver-mas button:hover{
     background-color: #076180;
     color: white;
-    width: auto;
+    cursor: pointer;
 }
