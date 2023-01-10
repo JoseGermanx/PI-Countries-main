@@ -94,6 +94,23 @@ body {
         max-width: 1240px;*/
         margin: 20px;  
       }
+
+      .container-home .container-lateral {
+
+        padding: 0;
+
+      }
+
+      .container-home .container-lateral .filters {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .container-home .container-lateral .filters > div {
+
+        padding-top:0;
+      }
       
       
     }

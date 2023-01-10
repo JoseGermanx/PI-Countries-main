@@ -123,8 +123,8 @@ export default function Home() {
       onClick={(e) => handleSumit(e)}
       >Buscar</button>
         </div>
+        <div className="filters-title"><h3>Filtros</h3></div>
         <div className="filters">
-          <h3>Filtros</h3>
           <div className="filters-population">
             <h3>Por tamaño de población</h3>
           <select onChange={(e) => { handleSortPopulations(e);}}>
