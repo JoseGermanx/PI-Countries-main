@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {getByName} from '../actions'
 import {Search }from '../components/styles/SearchBar'
@@ -12,10 +12,16 @@ export default function SearchBar() {
     setName(e.target.value);
     console.log(name)
   }
+ 
   function handleSumit(e) {
     e.preventDefault();
     dispatch(getByName(name))
   }
+   
+  useEffect(() => {
+    dispatch(getByName(name));
+  }, [dispatch, name]);
+
   return (
     <Search>
       <input

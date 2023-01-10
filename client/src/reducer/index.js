@@ -4,7 +4,8 @@ const initialState = {
     countries : [],
     detail : [],
     name :[],
-    flag: []
+    flag: [],
+    allActivities: []
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
@@ -28,7 +29,8 @@ function rootReducer (state= initialState, action) {
             case 'GET_NAME':
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                allCountries: action.payload
             }
             case 'POST_ACTIVITY':
             return {
@@ -41,6 +43,16 @@ function rootReducer (state= initialState, action) {
                 ...state,
                 countries: statusFilter
             }
+            case 'FILTER_COUNTRIES_POPULATION':
+                const sortPopulation = action.payload === "may" ?
+                state.countries.sort((a, b) => b.poblacion - a.poblacion)
+                : state.countries.sort((a, b) => a.poblacion - b.poblacion)
+                console.log(sortPopulation)
+                return {
+                    ...state,
+                countries: sortPopulation
+                }
+            
             case 'ORDER_NAME':
                 const sortArr = action.payload === 'asc' ?
                 state.countries.sort(function (a, b) {
@@ -66,6 +78,20 @@ function rootReducer (state= initialState, action) {
                     ...state,
                     countries: sortArr
                 }
+                case "GET_ACTIVITY":
+                    return {
+                        ...state,
+                        allActivities: action.payload
+                    }
+                    case 'BY_ACTIVITY':                     
+                   
+                    const activityFilter = action.payload === 'All' ? state.allCountries:
+                    state.allCountries.filter(c => c.activities.find((element) => element.nombre === action.payload))
+                    console.log(activityFilter)
+                   return {
+                   ...state,
+                   countries: activityFilter
+                   }
             
             default:
         return state;

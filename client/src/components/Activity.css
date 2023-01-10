@@ -1,6 +1,9 @@
 *{box-sizing:border-box;}
 
-form{
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width:300px;
 	padding:16px;
 	border-radius:10px;
@@ -8,11 +11,18 @@ form{
 	background-color:rgb(164, 162, 199);
 }
 
+form > div {
+	
+	align-items: center;
+	width:75%;
+}
+
 form label{
 	width:100px;
 	font-weight:bold;
-	display:inline-block;
+	/* display:inline-block; */
 }
+
 
 form select,
 form input {
@@ -22,12 +32,10 @@ form input {
 	border-radius:3px;
 	background-color:#f6f6f6;
 	margin:8px 0;
-	display:inline-block;
 }
 
-form button{
+form button {
 	width:100%;
-	padding:8px 16px;
 	margin-top:32px;
 	border:1px solid #000;
 	border-radius:5px;
@@ -35,4 +43,45 @@ form button{
 	color:#fff;
 	background-color:#000;
   cursor:pointer;
-} 
+}
+
+form .flag li {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-right: auto;
+	margin-left: auto;
+	margin: 3px;
+	align-items: flex-end;
+	
+}
+
+
+	.countriesSelected {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+		align-items: flex-end;
+
+	}
+
+	.countriesSelected > div {
+		font-size: 0.8em;
+		display: flex;
+		align-items: center;
+		margin: 3%;
+		align-items: flex-end;
+	}
+
+	.countriesSelected > div > button {
+		position: relative;
+		font-size: 7px;
+		border-radius: 5px;
+		margin-left: 5px;
+		border: none;
+		color: white;
+		background-color: rgb(252, 19, 73);
+		cursor: pointer;
+		
+		
+	}

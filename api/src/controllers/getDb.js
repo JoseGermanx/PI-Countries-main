@@ -9,4 +9,4 @@ const getDbInfo = async () => {
     return dbInfo;
   };
 
-  module.exports = getAllCountry;
+  module.exports = getAllCountry

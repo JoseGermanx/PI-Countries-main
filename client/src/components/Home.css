@@ -1,17 +1,74 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+
 body {
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-background-position: fixed;
+  background-position: fixed;
+  background: rgb(255, 255, 255);
+  display: unset;
+}
+
+.container-home {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(4, auto);
+
+  /* width: 90%;
+  max-width: 1240px;*/
+  margin: 20px;  
+}
+
+.container-home > div {
+  padding: 20px;
+}
+
+.container-home .container-header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  background: #008CBA;
+  grid-row: 1;
+  
+}
+
+.container-home .container-lateral {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  border: solid 1px;
+  border-radius: 0 0 8px 8px;
+  grid-row: 2 / 4;
+}
+
+.container-home .container-lateral .filters {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+}
+
+.container-home .container-lateral .filters > div {
+
+  padding-top: 2%;
+}
+
+.container-home .container-principal {
+  grid-column: span 5;
+  grid-row: 2 / 4;
+  border: solid 1px;
+  border-radius: 0 0 8px 8px;
+}
+
+.container-home .container-footer {
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
 
 .mostrar-ciudades {
-  width: 90%;
   max-width: 1240px;
   margin: 0 auto;
-
   display: grid;
-
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 20px;
@@ -23,15 +80,26 @@ background-position: fixed;
       width: 100%
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
       .mostrar-ciudades {
         grid-template-columns: repeat(2, 1fr);
+      }
+      .container-home {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: repeat(6, auto);
+        grid-template-rows: repeat(4, auto);
+      
+        /* width: 90%;
+        max-width: 1240px;*/
+        margin: 20px;  
       }
       
       
     }
 
     @media only screen and (min-width: 920px) {
+      
       .mostrar-ciudades {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -107,3 +175,35 @@ background-position: fixed;
   background: #037e8c;
   font-weight: bold;
 }
+
+.search-input {
+  width: auto;
+}
+
+.btn-search {
+      border-radius: 6px;
+      background-color: rgb(22, 95, 140); 
+      color: rgb(253, 253, 253); 
+      border: 2px solid  rgb(22, 95, 140);
+      width: auto;
+      height: auto;
+      color: white;
+      padding: 8px 28px;
+      text-align: center;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: auto;
+}
+/* Al poner el curso encima (hover) */
+
+.btn-search:hover {
+      background-color: #008CBA;
+      color: white;
+      width: auto;
+ }

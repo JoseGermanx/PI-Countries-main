@@ -1,8 +1,13 @@
+const { Country, Activity} = require("../db");
 const getAllCountry = require('../controllers/getDb')
 
 const obtenerCountries = async (req, res, next) => {
   try {
-    let countriesTotal = await getAllCountry();
+    let countriesTotal = await Country.findAll(
+      {
+        include: Activity
+      }
+    );
     const { pais } = req.query;
 
     if (pais) {

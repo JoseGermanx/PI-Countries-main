@@ -56,7 +56,14 @@ export default function ActivityCreator() {
       });
     }    
     
-    console.log(flag);
+   // console.log(flag);
+  }
+
+  function handleDelete(e) {
+    setInput({
+        ...input,
+        pais: input.pais.filter(c => c !== e)
+    })
   }
 
   function handleSumit(e) {
@@ -128,7 +135,18 @@ export default function ActivityCreator() {
         </div>
         <div>
           <label>Dificultad:</label>
-          <input
+          <select id="dificult"
+          value={input.dificultad}
+            name="dificultad"
+            onChange={(e) => handleChange(e)} >
+          <option value="">Elige la dificultad</option>
+          <option value="1">1 - Muy facil</option>
+          <option value="2">2 - Facil</option>
+          <option value="3">3 - Moderado</option>
+          <option value="4">4 - Dificil</option>
+          <option value="5">5 - Muy dificil</option>
+          </select>
+          {/* <input
           id="dificult"
             placeholder="del 1 al 5"
             type="range"
@@ -138,7 +156,7 @@ export default function ActivityCreator() {
             value={input.dificultad}
             name="dificultad"
             onChange={(e) => handleChange(e)}
-          />
+          /> */}
         </div>
         <div>
           <label>Duración:</label>
@@ -180,7 +198,7 @@ export default function ActivityCreator() {
           //onChange={(e) => handleSelect(e)}      
           /> */}
           
-          <select id="country" multiple name="pais" onChange={(e) => handleSelect(e)}>
+          <select id="country" name="pais" onChange={(e) => handleSelect(e)}>
           <option value="">Elige un país</option>
             {countries.map((country) => (
               <option value={country.id} key={country.id}>
@@ -188,9 +206,15 @@ export default function ActivityCreator() {
               </option>
             ))}
           </select>
-          <label id="flag">
-          <ul><li>{input.pais.map(el => el + ", ")}</li></ul>
-          </label>
+          <div id="flag" className="flag">
+          <ul><li className="countriesSelected">
+            {input.pais.map(el => 
+            <div>
+            {el}
+            <button type="button" onClick={() => handleDelete(el)}>X</button>
+            </div>)
+            }</li></ul>
+          </div>
         </div>
         <button type="submit">Crear actividad</button>
       </form>

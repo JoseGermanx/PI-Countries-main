@@ -68,9 +68,34 @@ export function getByName(name) {
     };  
  }
 
+ export function filterByPopulation(payload) {
+  console.log(payload)
+   return {
+    type: "FILTER_COUNTRIES_POPULATION",
+    payload
+  };  
+}
+
  export function orderByName(payload) {
   return {
     type: "ORDER_NAME",
     payload
   };
+}
+
+export function getActivity() {
+  return async function (dispatch) {
+     let json = await axios(`${api}/activities/`, {});
+       return dispatch({
+        type: "GET_ACTIVITY",
+        payload: json.data,
+      });    
+  };
+}
+
+export function byActivity(payload) {
+  return {
+      type: 'BY_ACTIVITY',
+      payload
+  }
 }
