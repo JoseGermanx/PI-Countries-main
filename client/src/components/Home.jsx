@@ -126,7 +126,7 @@ export default function Home() {
         <div className="filters-title"><h3>Filtros</h3></div>
         <div className="filters">
           <div className="filters-population">
-            <h3>Por tamaño de población</h3>
+            <h3>Población</h3>
           <select onChange={(e) => { handleSortPopulations(e);}}>
             <option value="All">Todos</option>
             <option value="may">Mayor Población</option>
@@ -134,7 +134,7 @@ export default function Home() {
           </select>
           </div>
           <div className="filters-continents">
-          <h3>Por continente</h3>
+          <h3>Continentes</h3>
           <select
             onChange={(e) => {handleFilterContinent(e);}}
           >
@@ -149,7 +149,7 @@ export default function Home() {
           </select>
           </div>
           <div className="filters-alpha">
-          <h3>Ordenar alfabeticamente</h3>
+          <h3>Alfabeticamente</h3>
           <select
             onChange={(e) => {
               handleSort(e);
