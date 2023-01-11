@@ -103,6 +103,7 @@ export default function ActivityCreator() {
     }
 
     dispatch(postActivity(input));
+    alert('Actividad creada');
     setInput({
       nombre: "",
       dificultad: "",

@@ -19,12 +19,14 @@ export default function Detail(props) {
 
 
   return (
-    <div className="detail">
-    <NavBar /> 
-     <div className="card-detail">
-      <div className="contenedor">
+    <div className="container">
+      <div className="container-nav">
+      <NavBar /> 
+      </div>    
+     <div className="container-card-detail">
+      <div className="container-top">
         <div className="bloque-iz">
-          <h1>{pais.name}</h1>
+          <div className="pais-name"><h1>{pais.name}</h1></div>
           <div className="card-img"><img src={pais.flag} alt={pais.name}/></div>
           <h3>Capital: {pais.capital}</h3>  
           <h5>Código de país: {pais.id}</h5>
@@ -39,6 +41,7 @@ export default function Detail(props) {
           </div>
           </div>             
           </div>
+          <div className="container-bottom">
           <div className="bloque-inf">
           <p>Actividades turísticas registradas por nuestros usuarios:</p>
           <div className="actividades-list">
@@ -59,11 +62,14 @@ export default function Detail(props) {
                   Registra una actividad aquí:<br/><Link to={"/activity"}>Cargar una actividad</Link> </p>
         
         </div>}</div>
-        </div>  
-          </div>        
+        </div>
+        </div>
+          </div>
+          <div className="container-footer">
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>
+      </div>
     </div>
   );
 }

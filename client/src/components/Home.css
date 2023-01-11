@@ -196,7 +196,7 @@ body {
   border: solid 0.1em;
 }
 
-.paginado ul li .active {
+.paginado ul li a:active {
   background: #037e8c;
   font-weight: bold;
 }

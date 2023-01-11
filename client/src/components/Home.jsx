@@ -25,7 +25,6 @@ export default function Home() {
   const [orden, setOrden] = useState("");
   const [name, setName] = useState("");
   
-
   //CALCULO DE INDEXES
   const max = Math.round(allCountries.length / countryPerPage);
   const indexLastCountry = currentPage * countryPerPage; // 9
@@ -101,6 +100,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getByName(name));
   }, [dispatch, name]);
+  
 
 
   return (
@@ -204,12 +204,13 @@ export default function Home() {
           })}
         </div>
         <div className="paginador-contenedor">
+          {/* <button className="prev" onClick={increment}>Prev</button> */}
           <Paginado
             countryPerPage={countryPerPage}
             allCountries={allCountries.length}
             paginado={paginado}
-            //currentPage={currentPage} setCurrentPage={setCurrentPage} max={max}
-          />
+            />
+            {/* <button className="next" onClick={decrement}>Next</button> */}
         </div>
       </div>
       <div className="container-footer">
