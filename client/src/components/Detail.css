@@ -1,29 +1,36 @@
-.container{
+body {
+    background-position: fixed;
+    background: rgb(255, 255, 255);
+    display: unset;
+  }
+
+.container {
     display:flex;
     flex-direction:column;
-}
-
-.card-detail {
-    background-color: rgba(160, 219, 231, 0.795);
-   padding: 10px;
-    display: flex;
-    flex-direction: column;
     
 }
 
-.contenedor {
-    padding-top: 0%;
-    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
-    background-color: rgba(249, 249, 249, 0.869);
-    min-width: 100%;
+
+.container > div {
+    padding: 20px;
+    margin: 20px;
+}
+.container-card-detail {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.container-top {
+   padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    height: auto;
-    margin-left:auto;
-    margin-right: auto;
-    align-items: flex-start;
-    overflow: hidden;
+    border: 1px solid #666666;
+    border-radius: 0 0 10px 10px;    
+}
+
+.container-bottom {
+     border: 1px solid #666666;
+    border-radius: 0 0 10px 10px;
     
 }
 
@@ -75,20 +82,7 @@
     text-align: left;
 }
 
-.bloque-inf {
-    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.1);
-    background-color: rgba(249, 249, 249, 0.869);
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-   height: auto;
-    margin-left:auto;
-    margin-right: auto;
-    padding-bottom: 10%;
-}
-.bloque-inf p {
-    padding-top: 0%;
-}
+
 
 .btn {
     border-radius: 6px;
@@ -125,6 +119,13 @@
         height: auto;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: space-around
+     }
+
+     .actividades {
+        display: flex;
+        flex-direction: column;
+        
      }
      .actividades li {
         list-style:none
@@ -142,4 +143,17 @@
      }
      .actividades li ul p {
         margin-bottom: 2em;        
+     }
+
+     @media only screen and (max-width: 600px) {
+        .container-top, .container-bottom {
+            padding: 10px;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             border: 1px solid #666666;
+             border-radius: 0 0 10px 10px;    
+         }
+
+
      }
