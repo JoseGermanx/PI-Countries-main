@@ -74,8 +74,8 @@ export default function ActivityCreator() {
       return;
     }
 
-    if(name.length > 10) {
-      alert('Nombre de la actividad debe ser máximo de 10 caracteres');
+    if(name.length > 20) {
+      alert('Nombre de la actividad debe ser máximo de 20 caracteres');
       return;
     }
 
