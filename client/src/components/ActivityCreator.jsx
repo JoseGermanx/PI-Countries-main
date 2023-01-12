@@ -84,11 +84,6 @@ export default function ActivityCreator() {
       return;
     }
 
-    if(duracion !== typeof 'number') {
-      alert('Puedes ingresar un numero entre 1 y 12');
-      return;
-    }
-
     if(duracion < 1 || duracion > 12) {
       alert('Revisa, la duración de la actividad puede ser de 1 a 12 horas');
       return;
