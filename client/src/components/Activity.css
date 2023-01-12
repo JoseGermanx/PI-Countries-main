@@ -1,8 +1,16 @@
 *{box-sizing:border-box;}
 
-.container {
-	padding: 10px;
-	margin: 20px;
+.container-creator {
+	display: flex;
+	flex-direction: column;
+}
+
+.container-creator .nav {
+	margin-bottom: 50px;
+}
+.container-creator .container-actividad {
+	margin-top: auto;
+	padding: 20px;
 }
 
 form {

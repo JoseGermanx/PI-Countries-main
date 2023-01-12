@@ -84,8 +84,13 @@ export default function ActivityCreator() {
       return;
     }
 
+    if(duracion !== typeof 'number') {
+      alert('Puedes ingresar un numero entre 1 y 12');
+      return;
+    }
+
     if(duracion < 1 || duracion > 12) {
-      alert('Revisa, la duración de la actividad puede ser de 1 a 12 hora');
+      alert('Revisa, la duración de la actividad puede ser de 1 a 12 horas');
       return;
     }
 
@@ -113,12 +118,12 @@ export default function ActivityCreator() {
   } 
 
   return (
-    <div className="container">
+    <div className="container-creator">
       <div className="nav">
       <NavBar />
       </div>
       <div className="container-actividad">      
-      <h1>Crea una actividad turística</h1>
+      <h3>Crea una actividad turística</h3>
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
           <label>Actividad:</label>
@@ -150,8 +155,8 @@ export default function ActivityCreator() {
           <label>Duración:</label>
           <input
           id="time"
-            placeholder="en horas"
-            type="range"
+            placeholder="(1 a 12 horas)"
+            type="number"
             min="1"
             max="12"
             value={input.duracion}
