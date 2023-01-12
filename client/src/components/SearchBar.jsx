@@ -15,6 +15,12 @@ export default function SearchBar() {
  
   function handleSumit(e) {
     e.preventDefault();
+    
+    var search = document.getElementById('search').value;
+    if(search.length === 0) {
+      alert('Ingresa algunos caracteres para buscar paises');
+      return;
+    }   
     dispatch(getByName(name))
   }
    
@@ -25,6 +31,7 @@ export default function SearchBar() {
   return (
     <Search>
       <input
+        id="search"
         className="search-input" 
         type="text"
         placeholder="Busca un país..."

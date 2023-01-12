@@ -83,14 +83,21 @@ function rootReducer (state= initialState, action) {
                         ...state,
                         allActivities: action.payload
                     }
-                    case 'BY_ACTIVITY':                     
-                   
+                    case 'BY_ACTIVITY':                   
                     const activityFilter = action.payload === 'All' ? state.allCountries:
                     state.allCountries.filter(c => c.activities.find((element) => element.nombre === action.payload))
                     console.log(activityFilter)
                    return {
                    ...state,
                    countries: activityFilter
+                   }
+                   case 'BY_SEASON':                   
+                    const seasonFilter = action.payload === 'All' ? state.allCountries:
+                    state.allCountries.filter(c => c.activities.find((element) => element.temporada === action.payload))
+                    console.log(seasonFilter)
+                   return {
+                   ...state,
+                   countries: seasonFilter
                    }
             
             default:

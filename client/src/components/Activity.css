@@ -1,5 +1,10 @@
 *{box-sizing:border-box;}
 
+.container {
+	padding: 10px;
+	margin: 20px;
+}
+
 form {
 	display: flex;
 	flex-direction: column;
@@ -35,14 +40,22 @@ form input {
 }
 
 form button {
-	width:100%;
+	width:65%;
+	height: 40px;
 	margin-top:32px;
-	border:1px solid #000;
+	border:1px solid rgb(227, 227, 227);
 	border-radius:5px;
 	display:block;
 	color:#fff;
-	background-color:#000;
+	background-color:rgb(11, 63, 67);
   cursor:pointer;
+}
+
+form button:active  {
+	border:1px solid rgb(227, 227, 227);
+	color:#fff;
+	background-color:rgb(36, 155, 164);
+    cursor:pointer;
 }
 
 form .flag li {

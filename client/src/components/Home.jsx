@@ -7,7 +7,8 @@ import {
   filterByPopulation,
   getByName,
   getActivity,
-  byActivity
+  byActivity,
+  bySeason
 } from "../actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -96,6 +97,13 @@ export default function Home() {
     setCurrentPage(1);
     setOrden(e.target.value);
 }
+
+function handleSeason(e) {
+  console.log(e.target.value)
+  dispatch(bySeason(e.target.value));
+  setCurrentPage(1);
+  setOrden(e.target.value);
+}
    
   useEffect(() => {
     dispatch(getByName(name));
@@ -170,9 +178,17 @@ export default function Home() {
                             </option>
                         )})}
                     </select>
-              
-
-          </div>
+                    </div>
+                    <div className="filters-temporada">
+          <h3>Filtrar por temporada</h3>
+          <select onChange={handleSeason}>
+                        <option value='All'>Todas</option>
+                        <option value='Verano'>Verano</option>
+                        <option value='Invierno'>Invierno</option>
+                        <option value='Otoño'>Otoño</option>
+                        <option value='Primavera'>Primavera</option>                        
+                    </select>
+                    </div>
           <div className="filters-erase">
           <button
             className="btn"
@@ -214,7 +230,8 @@ export default function Home() {
         </div>
       </div>
       <div className="container-footer">
-        <h1>TEST</h1>
+        <p>Aplicación desarrollada por <a href="http://github.com/jgxdev">Jose G Martínez</a> con mucho poder 🚀.</p>
+        <p>Proyecto individual Bootcamp 💻 de Henry</p>
       </div>
     </div>
   );

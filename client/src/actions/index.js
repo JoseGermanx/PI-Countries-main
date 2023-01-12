@@ -99,3 +99,10 @@ export function byActivity(payload) {
       payload
   }
 }
+
+export function bySeason(payload) {
+  return {
+      type: 'BY_SEASON',
+      payload
+  }
+}

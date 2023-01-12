@@ -34,20 +34,21 @@ export default function Detail(props) {
           <div className="bloque-der">
           <div><span><h2>Datos relevantes sobre {pais.name}</h2></span></div>
           <div className="span-text">            
-          <span><p>Continente: {pais.continente}</p></span>  
-          <span><p>Región: {pais.subregion}</p></span> 
-          <span><p>Población: {pais.poblacion} habitantes</p></span> 
-          <span><p>Área: {pais.area}</p></span>
+          <span>Continente:&nbsp;<p>{pais.continente}</p></span>  
+          <span>Región:&nbsp;<p>{pais.subregion}</p></span> 
+          <span>Población:&nbsp;<p>{pais.poblacion} habitantes</p></span> 
+          <span>Área:&nbsp;<p>{pais.area} km2</p></span>
           </div>
           </div>             
           </div>
           <div className="container-bottom">
           <div className="bloque-inf">
-          <p>Actividades turísticas registradas por nuestros usuarios:</p>
-          <div className="actividades-list">
+          <h3>Actividades turísticas</h3>
+          <div className="actividades-list">          
            {pais.activities? pais.activities.map((e) => {
           return (
             <div className="actividades">
+            <p>Actividades turísticas registradas por nuestros usuarios:</p>
             <li key={e.id}>
               <ul><h3>{e.nombre}</h3>
                  <p>Temporada: {e.temporada}<br/>

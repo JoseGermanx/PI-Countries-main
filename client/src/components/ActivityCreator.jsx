@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { postActivity, getCountries, getFlags } from "../actions";
+import { postActivity, getCountries, getActivity } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 //import {CreateActivity} from '../components/styles/Activity';
@@ -11,10 +11,16 @@ import "./Activity.css"
 export default function ActivityCreator() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const countries = useSelector((state) => state.countries);
-  const flags = useSelector((state) => state.flag);
-    
-
+  const countries = useSelector(state => state.countries).sort((a, b) => {
+    if(a.name < b.name){
+        return -1;
+    }
+    if(a.name > b.name){
+        return 1;
+    }
+    return 0;
+})
+ 
   const [input, setInput] = useState({
     nombre: "",
     dificultad: "",
@@ -23,13 +29,9 @@ export default function ActivityCreator() {
     pais: [],
   });
 
-  const [flag, setFlag] = useState({
-    flag: []
-  })
-
   useEffect(() => {
     dispatch(getCountries());
-    dispatch(getFlags());
+    dispatch(getActivity());
   }, [dispatch]);
 
   function handleChange(e) {
@@ -37,39 +39,29 @@ export default function ActivityCreator() {
       ...input,
       [e.target.name]: e.target.value,
     });
-    console.log(input);
+    console.log(e.target.value);
   }
   
+  
   function handleSelect(e) {
-    setInput({
+     setInput({
       ...input,
-     pais: [...input.pais, e.target.value],
-      
+     pais: [...input.pais, e.target.value]
     });
-    console.log(input);
-    const flagSelec = input.pais.find(element => element === flags.id);
-    if(flagSelec) {
-      flag.push(flags.flag);
-      setFlag({
-        ...flag,
-        flag: [...flag, flagSelec],
-      });
-    }    
-    
-   // console.log(flag);
+    console.log(input.pais)
   }
 
   function handleDelete(e) {
-    setInput({
+     setInput({
         ...input,
         pais: input.pais.filter(c => c !== e)
     })
+    console.log(input.pais)
   }
 
   function handleSumit(e) {
     e.preventDefault();
-    console.log(input);
-    
+
    //validaciones de campos onSumit
     var name = document.getElementById('name').value;
     var dificultad = document.getElementById('dificult').value;
@@ -77,8 +69,13 @@ export default function ActivityCreator() {
     var temporada = document.getElementById('season').value;
     var pais = document.getElementById('country').value;
     
-    if(name.length === 0 || name.length > 30) {
-      alert('Revisa, te falta el campo nombre o es muy largo');
+    if(name.length === 0) {
+      alert('Nombre de la actividad no puede estar vacio');
+      return;
+    }
+
+    if(name.length > 10) {
+      alert('Nombre de la actividad debe ser máximo de 10 caracteres');
       return;
     }
 
@@ -87,8 +84,8 @@ export default function ActivityCreator() {
       return;
     }
 
-    if(duracion < 1 || duracion > 24) {
-      alert('Revisa, la duración de la actividad tiene que ser de 1 a 24 horas');
+    if(duracion < 1 || duracion > 12) {
+      alert('Revisa, la duración de la actividad puede ser de 1 a 12 hora');
       return;
     }
 
@@ -97,11 +94,12 @@ export default function ActivityCreator() {
       return;
     }
 
-    if( pais.length === 0 ) {
+    if(!pais.length) {
       alert('Selcción al menos 1 país');
       return;
     }
 
+    console.log(input);
     dispatch(postActivity(input));
     alert('Actividad creada');
     setInput({
@@ -110,23 +108,22 @@ export default function ActivityCreator() {
       duracion: "",
       temporada: "",
       pais: [],
-    });
-    setFlag({
-      flag: []
-    });
+    });    
     history.push("/home");
   } 
 
   return (
-    <div>
-      <NavBar /> 
-      
+    <div className="container">
+      <div className="nav">
+      <NavBar />
+      </div>
+      <div className="container-actividad">      
       <h1>Crea una actividad turística</h1>
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
           <label>Actividad:</label>
           <input
-          id="name"
+            id="name"
             placeholder="Ejem: pasear a caballo"
             type="text"
             value={input.nombre}
@@ -140,31 +137,23 @@ export default function ActivityCreator() {
           value={input.dificultad}
             name="dificultad"
             onChange={(e) => handleChange(e)} >
-          <option value="">Elige la dificultad</option>
+          <option value="" hidden>Elige la dificultad</option>
           <option value="1">1 - Muy facil</option>
           <option value="2">2 - Facil</option>
           <option value="3">3 - Moderado</option>
           <option value="4">4 - Dificil</option>
           <option value="5">5 - Muy dificil</option>
           </select>
-          {/* <input
-          id="dificult"
-            placeholder="del 1 al 5"
-            type="range"
-            min="1"
-            max="5"
-            step="1"
-            value={input.dificultad}
-            name="dificultad"
-            onChange={(e) => handleChange(e)}
-          /> */}
+          
         </div>
         <div>
           <label>Duración:</label>
           <input
           id="time"
             placeholder="en horas"
-            type="number"
+            type="range"
+            min="1"
+            max="12"
             value={input.duracion}
             name="duracion"
             onChange={(e) => handleChange(e)}
@@ -173,36 +162,19 @@ export default function ActivityCreator() {
         <div>
           <label>Temporada:</label>
           <select id="season" name="temporada" onChange={(e) => handleChange(e)}>
-          <option value="">Elige una temporada</option>
+          <option value="" hidden>Elige una temporada</option>
             <option value="Verano">Verano</option>
             <option value="Invierno">Invierno</option>
             <option value="Primavera">Primavera</option>
             <option value="Otoño">Otoño</option>
-          </select>
-
-          {/* <input
-            type="text"
-            value={input.temporada}
-            name="temporada"
-            onChange={(e) => handleChange(e)}
-          /> */}
+          </select>         
         </div>
         <div>
           <label>País:</label>
-          {/* <Select
-          isMulti
-          name="pais"
-          id="country"
-          options={options}
-          className="basic-multi-select"
-          classNamePrefix="select"
-          //onChange={(e) => handleSelect(e)}      
-          /> */}
-          
-          <select id="country" name="pais" onChange={(e) => handleSelect(e)}>
-          <option value="">Elige un país</option>
-            {countries.map((country) => (
-              <option value={country.id} key={country.id}>
+         <select id="country" name="pais" onChange={(e) => handleSelect(e)}>
+         <option value="" hidden>Seleciona un país</option>
+            {countries.map(country => (
+              <option key={country.id} value={country.id} >
                 {country.name}
               </option>
             ))}
@@ -210,7 +182,7 @@ export default function ActivityCreator() {
           <div id="flag" className="flag">
           <ul><li className="countriesSelected">
             {input.pais.map(el => 
-            <div>
+            <div key={el.id}>
             {el}
             <button type="button" onClick={() => handleDelete(el)}>X</button>
             </div>)
@@ -219,10 +191,12 @@ export default function ActivityCreator() {
         </div>
         <button type="submit">Crear actividad</button>
       </form>
+      </div>
+      <div class="footer">
       <Link to={"/home"}>
         <button className="btn">Volver</button>
       </Link>
-      
+      </div>
     </div>
   );
 }
