@@ -8,7 +8,7 @@ export default function Card({name, continente, flag, id}) {
       <div className="thumb"><img src={flag} alt="Bandera"/><div><h5>{continente}</h5></div></div>
       <div className="text-card">
         <div><h3>{name}</h3></div>
-        <div><h5>Actividades: 5</h5></div>
+        {/* <div><h5>Actividades: 5</h5></div> */}
         <div className="ver-mas">
         <Link
             to={"/countries/" + id}>
