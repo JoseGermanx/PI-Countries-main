@@ -27,7 +27,7 @@ export default function Home() {
   const [name, setName] = useState("");
   
   //CALCULO DE INDEXES
-  const max = Math.round(allCountries.length / countryPerPage);
+  //const max = Math.round(allCountries.length / countryPerPage);
   const indexLastCountry = currentPage * countryPerPage; // 9
   const indexFirstCountry = indexLastCountry - countryPerPage; // 0
   const currentCountrys = allCountries.slice(
@@ -38,12 +38,12 @@ export default function Home() {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  function decrement() {
-    setCurrentPage(currentPage - 1);
-  }
-  function increment() {
-    setCurrentPage(currentPage + 1);
-  }
+  // function decrement() {
+  //   setCurrentPage(currentPage - 1);
+  // }
+  // function increment() {
+  //   setCurrentPage(currentPage + 1);
+  // }
 
   useEffect(() => {
     dispatch(getCountries());
