@@ -93,3 +93,10 @@
 		background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
 		padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
 	}
+
+      @media only screen and (max-width: 600px) {
+
+            .LandingPage {
+                  background-image: url(../../public/bg_countries_movil.jpg);
+            }
+      }
