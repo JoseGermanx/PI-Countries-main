@@ -37,6 +37,14 @@
     color: rgb(0, 0, 0);
   }
 
+  .card .show-act {
+    display: none;
+  }
+
+  #name:hover ~ .show-act {
+    display: block;
+  }
+
 .card .thumb {
     padding-top: 0%;
     padding-bottom: 0%;
@@ -83,6 +91,7 @@
     color: white;
     cursor: pointer;
 }
+
 
 @media only screen and (max-width: 600px) {
 
