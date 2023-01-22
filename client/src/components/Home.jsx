@@ -125,11 +125,11 @@ function handleSeason(e) {
         placeholder="Busca un país..."
         onChange={(e) => handleInputChange(e)}
       />
-      <button      
+      {/* <button      
       className="btn-search"
       type="submit"
       onClick={(e) => handleSumit(e)}
-      >Buscar</button>
+      >Buscar</button> */}
         </div>
         <div className="filters-title"><h3>Filtros</h3></div>
         <div className="filters">
