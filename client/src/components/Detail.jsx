@@ -24,6 +24,7 @@ export default function Detail(props) {
       <NavBar /> 
       </div>    
      <div className="container-card-detail">
+      {pais? 
       <div className="container-top">
         <div className="bloque-iz">
           <div className="pais-name"><h1>{pais.name}</h1></div>
@@ -40,7 +41,9 @@ export default function Detail(props) {
           <span>Área:&nbsp;<p>{pais.area} km2</p></span>
           </div>
           </div>             
-          </div>
+          </div>: <div class="loader-wrapper">
+          <div class="loader"></div>
+        </div>}
           <div className="container-bottom">
           <div className="bloque-inf">
           <h3>Actividades turísticas</h3>
