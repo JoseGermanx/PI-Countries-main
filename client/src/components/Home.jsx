@@ -117,7 +117,7 @@ function handleSeason(e) {
         <NavBar />
       </div>
       <div className="container-lateral">
-        <h1>Paises y turismo</h1>
+        <h1>Encuentra tu próximo destino</h1>
         <div className="search">
         <input
         className="search-input" 
