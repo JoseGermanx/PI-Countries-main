@@ -37,15 +37,11 @@
     color: rgb(0, 0, 0);
   }
 
-  .card .show-act {
-    display: none;
-  }
+  .card .show-act h5 {
+    color: red;
+   }
 
-  #name:hover ~ .show-act {
-    display: block;
-  }
-
-.card .thumb {
+  .card .thumb {
     padding-top: 0%;
     padding-bottom: 0%;
     background-size: cover;
