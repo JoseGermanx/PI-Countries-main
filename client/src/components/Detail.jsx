@@ -24,7 +24,7 @@ export default function Detail(props) {
       <NavBar /> 
       </div>    
      <div className="container-card-detail">
-      {pais? 
+      {pais.id === props.match.params.id ? 
       <div className="container-top">
         <div className="bloque-iz">
           <div className="pais-name"><h1>{pais.name}</h1></div>
