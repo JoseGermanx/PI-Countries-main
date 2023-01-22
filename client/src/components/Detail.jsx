@@ -46,13 +46,12 @@ export default function Detail(props) {
         </div>}
           <div className="container-bottom">
           <div className="bloque-inf">
-          <h3>Actividades turísticas</h3>
+          <h3>Actividades turísticas registradas por nuestros usuarios</h3>
           <div className="actividades-list">          
            {pais.id === props.match.params.id && pais.activities.length !== 0 ? pais.activities.map((e) => {
           return (
             <div className="actividades">
-            <p>Actividades turísticas registradas por nuestros usuarios:</p>
-            <li key={e.id}>
+             <li key={e.id}>
               <ul><h3>{e.nombre}</h3>
                  <p>Temporada: {e.temporada}<br/>
                   Duración: {e.duracion} horas<br/>
