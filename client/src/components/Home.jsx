@@ -205,7 +205,7 @@ function handleSeason(e) {
       </div>
       <div className="container-principal">
         <div className="mostrar-ciudades">
-          {currentCountrys?.map((e) => {
+          {currentCountrys.length > 0 ? currentCountrys.map((e) => {
              return (
               <div key={e.id}>
                 <Card
@@ -217,7 +217,9 @@ function handleSeason(e) {
               </div>
              );
           
-          })}
+          }):<div class="loader-wrapper">
+          <div class="loader"></div>
+        </div>}
         </div>
         <div className="paginador-contenedor">
           {/* <button className="prev" onClick={increment}>Prev</button> */}
