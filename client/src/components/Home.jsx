@@ -213,6 +213,7 @@ function handleSeason(e) {
                   continente={e.continente}
                   flag={e.flag}
                   id={e.id}
+                  activities={e.activities}
                 />
               </div>
              );
