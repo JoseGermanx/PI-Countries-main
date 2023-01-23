@@ -80,6 +80,10 @@ body {
       width: 100%
 }
 
+.search {
+  padding-bottom: 10px;
+}
+
 
 @media only screen and (max-width: 600px) {
       .mostrar-ciudades {

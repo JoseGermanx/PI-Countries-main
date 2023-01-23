@@ -136,10 +136,9 @@ function handleSeason(e) {
       onClick={(e) => handleSumit(e)}
       >Buscar</button> */}
         </div>
-        <div className="filters-title"><h3>Filtros</h3></div>
         <div className="filters" id="filters">
-          <div className="filters-population">
-            <h3>Población</h3>
+           <div className="filters-population">
+            <h3>↕ Población</h3>
           <select onChange={(e) => { handleSortPopulations(e);}}>
             <option value="All">Todos</option>
             <option value="may">Mayor Población</option>
@@ -162,7 +161,7 @@ function handleSeason(e) {
           </select>
           </div>
           <div className="filters-alpha">
-          <h3>Alfabeticamente</h3>
+          <h3>↕ Alfabeticamente</h3>
           <select
             onChange={(e) => {
               handleSort(e);
@@ -173,7 +172,7 @@ function handleSeason(e) {
           </select>
           </div>
           <div className="filters-activity">
-          <h3>Filtrar por actividad</h3>
+          <h3>Actividades</h3>
           <select onChange={handleActivity}>
                         <option value='All'>All activities</option>
                         {allActivities?.map((e) => {
@@ -185,7 +184,7 @@ function handleSeason(e) {
                     </select>
                     </div>
                     <div className="filters-temporada">
-          <h3>Filtrar por temporada</h3>
+          <h3>Temporada</h3>
           <select onChange={handleSeason}>
                         <option value='All'>Todas</option>
                         <option value='Verano'>Verano</option>
