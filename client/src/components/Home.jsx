@@ -77,11 +77,16 @@ export default function Home() {
     setOrden(e.target.value);
   }
   function handleInputChange(e) {
+    const element = document.getElementById("filters");
+    element.style.display='none';
     e.preventDefault();
     setName(e.target.value);
     setCurrentPage(1);
     setOrden(e.target.value);
-    console.log(name)
+    console.log(name);
+    if (e.target.value === "") {
+      element.style.display='flex';
+    }
   }
  
   function handleSumit(e) {
@@ -109,8 +114,7 @@ function handleSeason(e) {
     dispatch(getByName(name));
   }, [dispatch, name]);
   
-
-
+  
   return (
     <div className="container-home">
       <div className="container-header">
@@ -120,6 +124,7 @@ function handleSeason(e) {
         <h1>Paises y turismo</h1>
         <div className="search">
         <input
+        id="search"
         className="search-input" 
         type="text"
         placeholder="Busca un país..."
@@ -132,7 +137,7 @@ function handleSeason(e) {
       >Buscar</button> */}
         </div>
         <div className="filters-title"><h3>Filtros</h3></div>
-        <div className="filters">
+        <div className="filters" id="filters">
           <div className="filters-population">
             <h3>Población</h3>
           <select onChange={(e) => { handleSortPopulations(e);}}>
