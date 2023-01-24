@@ -136,17 +136,9 @@ function handleSeason(e) {
       onClick={(e) => handleSumit(e)}
       >Buscar</button> */}
         </div>
-        <div className="filters" id="filters">
-           <div className="filters-population">
-            <h3>↕ Población</h3>
-          <select onChange={(e) => { handleSortPopulations(e);}}>
-            <option value="All">Todos</option>
-            <option value="may">Mayor Población</option>
-            <option value="men">Menor población</option>
-          </select>
-          </div>
-          <div className="filters-continents">
-          <h3>Continentes</h3>
+        <div className="filters" id="filters">          
+        <div className="filters-continents">
+          <h3>Ver continentes</h3>
           <select
             onChange={(e) => {handleFilterContinent(e);}}
           >
@@ -158,6 +150,13 @@ function handleSeason(e) {
             <option value="Africa">Africa</option>
             <option value="Antarctica">Antartida</option>
             <option value="Asia">Asia</option>
+          </select>
+          </div>
+           <div className="filters-population">
+            <h3>↕ Población</h3>
+          <select onChange={(e) => { handleSortPopulations(e);}}>
+            <option value="may">Mayor Población</option>
+            <option value="men">Menor población</option>
           </select>
           </div>
           <div className="filters-alpha">
