@@ -10,8 +10,8 @@
   position: relative;
   top: 0;
   transition: all .1s ease-in;
-  border: solid 1px;
   border-radius: 0 0 8px 8px;
+  opacity: 50;
 }
 
 .card .thumb div h5 {
