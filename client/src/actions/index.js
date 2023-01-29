@@ -106,3 +106,18 @@ export function bySeason(payload) {
       payload
   }
 }
+
+export function getMaps(id) {
+  return async function (dispatch) {
+    try {
+      let json = await axios(`https://restcountries.com/v3/alpha/` + id);
+      return dispatch({
+        type: "GET_MAPS",
+        payload: json.data
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+}

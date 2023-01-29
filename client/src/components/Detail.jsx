@@ -4,18 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 
-import { getDetail } from "../actions/index";
+import { getDetail, getMaps } from "../actions/index";
 import "./Detail.css"
 
+
+
 export default function Detail(props) {
-  console.log(props)
+  
   const dispatch = useDispatch();
  
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
+    dispatch(getMaps(props.match.params.id))
   }, [dispatch, props.match.params.id]);
 
   const pais = useSelector((state) => state.detail);
+  //const maps = useSelector((state) => state.maps)
+  //console.log(maps[0].maps.googleMaps);
 
 
   return (

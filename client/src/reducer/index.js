@@ -5,7 +5,8 @@ const initialState = {
     detail : [],
     name :[],
     flag: [],
-    allActivities: []
+    allActivities: [],
+    maps: []
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
@@ -99,7 +100,11 @@ function rootReducer (state= initialState, action) {
                    ...state,
                    countries: seasonFilter
                    }
-            
+                   case 'GET_MAPS':
+                    return {
+                        ...state,
+                        maps: action.payload
+                    }
             default:
         return state;
     }
