@@ -14,10 +14,4 @@ export const Nav = styled.div`
   top: 0;
   left: 0;
   right: 0;
-
-  #profile img  {
-    height: 15px;
-    border-radius: 25%;
-    align-items:left;
-  }
 `;
