@@ -17,6 +17,7 @@ export const Nav = styled.div`
 
   img {
     height: 15px;
-    border-radius: 50%;
+    border-radius: 25%;
+    align-items:left;
   }
 `;
