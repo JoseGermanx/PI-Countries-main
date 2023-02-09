@@ -19,9 +19,6 @@ export default function NavBar() {
         <img src="/logo_mundo.jpg" alt="Countries App" />
           Countries<span>App</span>
         </Logo>
-        <div>
-          { isAuthenticated ? <LogoutButton /> : <LoginButton />}
-        </div>
         <Hamburger onClick={() => setIsOpen(!isOpen)}>
           <span />
           <span />
