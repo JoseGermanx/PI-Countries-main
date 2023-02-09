@@ -15,7 +15,7 @@ ReactDOM.render(
     domain= {domain}
     clientId= {clienteId}
     authorizationParams={{
-      redirect_uri: window.location.reload()
+      redirect_uri: window.location.origin
     }}
   >
   <Provider store={store}>
