@@ -7,7 +7,7 @@
 }
 
 .contenedor-userlog div .img-profile img  {
-    height: 15px;
-    width: 15px;
+    width: 55px;
     border-radius: 35%;
+    padding-right: 5px;
   }
