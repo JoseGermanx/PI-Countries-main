@@ -7,8 +7,8 @@ import {Provider} from 'react-redux';
 import {store} from './store';
 import { Auth0Provider } from "@auth0/auth0-react";
 
-const domain = process.env.DOMAIN;
-const clienteId = process.env.CLIENTE_ID
+const domain = process.env.REACT_APP_DOMAIN;
+const clienteId = process.env.REACT_APP_CLIENTE_ID
 
 ReactDOM.render(
   <Auth0Provider
