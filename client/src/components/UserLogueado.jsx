@@ -6,7 +6,7 @@ function UserLogueado() {
     const { user } = useAuth0()
   return (
     <div className="contenedor-userlog">
-        <div><img className="img-profile" src={user.picture} alt={user.name} /></div>
+        <div className="img-profile"><img  src={user.picture} alt={user.name} /></div>
         <div><p>{user.name}</p></div>       
     </div>
   );
