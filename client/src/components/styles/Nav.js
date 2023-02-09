@@ -15,7 +15,7 @@ export const Nav = styled.div`
   left: 0;
   right: 0;
 
-  img {
+  img #profile {
     height: 15px;
     border-radius: 25%;
     align-items:left;
