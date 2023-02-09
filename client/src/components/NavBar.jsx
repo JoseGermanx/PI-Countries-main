@@ -29,7 +29,7 @@ export default function NavBar() {
         </Hamburger>
         <Menu isOpen={isOpen}>
           <MenuLink ><Link to={"/activity"}>Cargar una actividad</Link></MenuLink>
-          {isAuthenticated? <MenuLink ><Link to={"/perfil"}>Hola, {user.name}</Link></MenuLink>: ''}
+          {isAuthenticated? <MenuLink ><Link to={"/perfil"}>Hola, {user.name}</Link></MenuLink>: <LoginButton />}
         </Menu>                
       </Nav>
     );

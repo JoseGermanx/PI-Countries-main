@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 //import {CreateActivity} from '../components/styles/Activity';
 import "./Activity.css"
-
-
+import { useAuth0 } from '@auth0/auth0-react';
+import NotAuth from "./NotAuth";
 
 export default function ActivityCreator() {
+  const { isAuthenticated } = useAuth0()
   const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector(state => state.countries).sort((a, b) => {
@@ -119,6 +120,7 @@ export default function ActivityCreator() {
       </div>
       <div className="container-actividad">      
       <h3>Crea una actividad turística</h3>
+      {isAuthenticated? 
       <form onSubmit={(e) => handleSumit(e)}>
         <div>
           <label>Actividad:</label>
@@ -190,7 +192,7 @@ export default function ActivityCreator() {
           </div>
         </div>
         <button type="submit">Crear actividad</button>
-      </form>
+      </form>: <NotAuth/>}
       </div>
       <div class="footer">
       <Link to={"/home"}>
