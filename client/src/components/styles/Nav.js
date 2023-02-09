@@ -14,4 +14,9 @@ export const Nav = styled.div`
   top: 0;
   left: 0;
   right: 0;
+
+  img {
+    height: 15px;
+    border-radius: 50%;
+  }
 `;
