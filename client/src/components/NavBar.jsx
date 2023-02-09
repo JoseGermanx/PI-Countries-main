@@ -5,14 +5,14 @@ import {Nav }from '../components/styles/Nav'
 import {Logo} from '../components/styles/Logo'
 import  {Menu}  from '../components/styles/Menu'
 import {Hamburger} from '../components/styles/Hamburguer'
-import LogoutButton from './Logout';
 import LoginButton from './Login'
 import { useAuth0 } from '@auth0/auth0-react';
+import UserLogueado from './UserLogueado';
 
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, user } = useAuth0()
+  const { isAuthenticated } = useAuth0()
       return (
       <Nav>
         <Logo href="/home">
@@ -26,7 +26,7 @@ export default function NavBar() {
         </Hamburger>
         <Menu isOpen={isOpen}>
           <MenuLink ><Link to={"/activity"}>Cargar una actividad</Link></MenuLink>
-          {isAuthenticated? <MenuLink ><Link to={"/perfil"}><img id="profile" src={user.picture} alt={user.name}/> <p>{user.name}</p></Link></MenuLink> : <LoginButton />}
+          {isAuthenticated? <MenuLink ><Link to={"/perfil"}><UserLogueado/></Link></MenuLink> : <LoginButton />}
         </Menu>                
       </Nav>
     );
