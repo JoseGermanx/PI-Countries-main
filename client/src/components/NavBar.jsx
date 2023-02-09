@@ -12,7 +12,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated } = useAuth0()
+  const { isAuthenticated, user } = useAuth0()
       return (
       <Nav>
         <Logo href="/home">
@@ -29,7 +29,7 @@ export default function NavBar() {
         </Hamburger>
         <Menu isOpen={isOpen}>
           <MenuLink ><Link to={"/activity"}>Cargar una actividad</Link></MenuLink>
-          <MenuLink ><Link to={"/"}>Salir</Link></MenuLink>
+          {isAuthenticated? <MenuLink ><Link to={"/perfil"}>Hola, {user.name}</Link></MenuLink>: ''}
         </Menu>                
       </Nav>
     );
