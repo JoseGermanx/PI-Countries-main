@@ -14,7 +14,7 @@ ReactDOM.render(
   <Auth0Provider
     domain= {domain}
     clientId= {clienteId}
-    redirect_uri= {window.location.origin}
+    redirectUri= {window.location.origin}
     // authorizationParams={{
     //   redirect_uri: window.location.origin
     // }}
