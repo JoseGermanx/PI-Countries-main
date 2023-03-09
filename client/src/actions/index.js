@@ -93,6 +93,16 @@ export function getActivity() {
   };
 }
 
+export function getSeason() {
+  return async function (dispatch) {
+     let json = await axios(`${api}/season/`, {});
+       return dispatch({
+        type: "GET_SEASON",
+        payload: json.data,
+      });    
+  };
+}
+
 export function byActivity(payload) {
   return {
       type: 'BY_ACTIVITY',
