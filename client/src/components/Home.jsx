@@ -19,7 +19,8 @@ import NotAct from "./notActivities/NotAct";
 export default function Home() {
   const dispatch = useDispatch();
   const allCountries = useSelector((state) => state.countries);
-  const allActivities = useSelector((state) => state.allActivities)
+  const allActivities = useSelector((state) => state.allActivities);
+  const allSeasons = useSelector((state) => state.season);
 
   //ESTADOS LOCALES
   const [currentPage, setCurrentPage] = useState(1);
@@ -184,15 +185,14 @@ function handleSeason(e) {
                     </select>
                     </div>
                     <div className="filters-temporada">
-          <h3>Temporada</h3>{
-            !allActivities.temporada ? <NotAct /> :
+          <h3>Temporada</h3>
           <select onChange={handleSeason}>
                         <option value='All'>Todas</option>
                         <option value='Verano'>Verano</option>
                         <option value='Invierno'>Invierno</option>
                         <option value='Otoño'>Otoño</option>
                         <option value='Primavera'>Primavera</option>                        
-                    </select>}
+                    </select>
                     </div>
           <div className="filters-erase">
           <button

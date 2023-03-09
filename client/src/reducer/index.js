@@ -6,7 +6,8 @@ const initialState = {
     name :[],
     flag: [],
     allActivities: [],
-    maps: []
+    maps: [],
+    season: []
 }
 function rootReducer (state= initialState, action) {
     switch (action.type) {
@@ -83,6 +84,12 @@ function rootReducer (state= initialState, action) {
                     return {
                         ...state,
                         allActivities: action.payload
+                    }
+                    case "GET_SEASON":
+                    return {
+                        ...state,
+                        season: action.payload
+
                     }
                     case 'BY_ACTIVITY':                   
                     const activityFilter = action.payload === 'All' ? state.allCountries:
