@@ -185,7 +185,7 @@ function handleSeason(e) {
                     </div>
                     <div className="filters-temporada">
           <h3>Temporada</h3>{
-            !allCountries.temporada ? <NotAct /> :
+            !allActivities.temporada ? <NotAct /> :
           <select onChange={handleSeason}>
                         <option value='All'>Todas</option>
                         <option value='Verano'>Verano</option>
