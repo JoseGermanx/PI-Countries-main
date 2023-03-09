@@ -14,6 +14,7 @@ import Card from "./Card";
 import Paginado from "./Paginado";
 import NavBar from "./NavBar";
 import "./Home.css";
+import NotAct from "./notActivities/NotAct";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -183,14 +184,15 @@ function handleSeason(e) {
                     </select>
                     </div>
                     <div className="filters-temporada">
-          <h3>Temporada</h3>
+          <h3>Temporada</h3>{
+            !allCountries.temporada ? <NotAct /> :
           <select onChange={handleSeason}>
                         <option value='All'>Todas</option>
                         <option value='Verano'>Verano</option>
                         <option value='Invierno'>Invierno</option>
                         <option value='Otoño'>Otoño</option>
                         <option value='Primavera'>Primavera</option>                        
-                    </select>
+                    </select>}
                     </div>
           <div className="filters-erase">
           <button
