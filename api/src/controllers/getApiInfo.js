@@ -18,21 +18,6 @@ const getApiInfo = async () => {
       poblacion: el.population,
     };
   });
-  // apiInfor.forEach((el) => {
-  //   Country.findOrCreate({
-  //     where: {
-  //       id: el.id,
-  //       name: el.name,
-  //       flag: el.flag,
-  //       continente: el.continente,
-  //       capital: el.capital,
-  //       subregion: el.subregion,
-  //       area: el.area,
-  //       poblacion: el.poblacion,
-  //     },
-  //   });
-  // });
-
   return apiInfor;
 };
 
