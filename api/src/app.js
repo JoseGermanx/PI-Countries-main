@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const allowOrigin = process.env.URLFECH || '*';
+const allowOrigin = process.env.URLFECH || process.env.URLFECH2 || '*';
 
 require('./db.js');
 
