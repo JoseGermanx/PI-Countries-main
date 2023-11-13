@@ -27,7 +27,7 @@ conn.sync({ force: false }).then(() => {
   console.log("......");
   server.listen(port, async () => {
     const allCountries = Country.findAll();// Consulto por todos los datos en DB
-    if (allCountries.length === 0) {
+    if (allCountries === null) {
       // verifico si la tabla countries esta vacia
       const apiUrl = await axios.get("https://restcountries.com/v3/all"); // si está vacia, ejecuto axios
       const apiInfor = await apiUrl.data.map((el) => {
