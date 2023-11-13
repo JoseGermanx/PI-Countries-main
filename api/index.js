@@ -26,8 +26,8 @@ const port = process.env.PORT || 3001;
 conn.sync({ force: false }).then(() => {
   console.log("......");
   server.listen(port, async () => {
-   // const allCountries = await Country.findAll();// Consulto por todos los datos en DB
-
+   const allCountries = await Country.findAll();// Consulto por todos los datos en DB
+if (allCountries === null) {
       // verifico si la tabla countries esta vacia
       const apiUrl = await axios.get("https://restcountries.com/v3/all"); // si está vacia, ejecuto axios
       const apiInfor = await apiUrl.data.map((el) => {
@@ -57,10 +57,10 @@ conn.sync({ force: false }).then(() => {
             "🚀 "
           )
         );
-  
+          } else {
       // si la tabla ya tenia datos, avanzo
       console.log("La base de datos de paises ya está cargada");
-    
+          }
     console.log(`%s listening at ${port} ✈ `); // eslint-disable-line no-console
     });
 });
